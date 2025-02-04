@@ -42,7 +42,8 @@ const FloatingChatbot = () => {
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setShowChatbot(true)}
               >
-                <FontAwesomeIcon icon={faComments} /> Chat with us
+                <span className="tooltip">Chat with us</span>
+                <FontAwesomeIcon icon={faComments} />
               </motion.button>
 
               {/* Contact Us Button */}
@@ -51,7 +52,8 @@ const FloatingChatbot = () => {
                 whileTap={{ scale: 0.9 }}
                 onClick={() => (window.location.href = "/enquiry")}
               >
-                <FontAwesomeIcon icon={faPhone} /> Contact Us
+                <span className="tooltip">Contact Us</span>
+                <FontAwesomeIcon icon={faPhone} />
               </motion.button>
             </motion.div>
           )}
