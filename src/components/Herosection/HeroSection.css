@@ -1,0 +1,67 @@
+.herosection-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.herosection-text-content {
+  max-width: 50%;
+}
+
+.herosection-text-content h1 {
+  font-size: 3rem;
+  font-family: "AvantGarde", sans-serif;
+
+  margin-bottom: 1rem;
+}
+
+.herosection-text-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.join-btn {
+  background-color: blue;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.business-btn {
+  background-color: transparent;
+  color: blue;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid blue;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.image-content img {
+  width: 300px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .herosection-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .herosection-text-content {
+    max-width: 100%;
+  }
+
+  .image-content {
+    display: none;
+  }
+}
