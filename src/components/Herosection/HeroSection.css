@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 2rem;
+  padding: 1.8rem;
   background-color: #f8f9fa;
 }
 
@@ -11,18 +11,17 @@
 }
 
 .herosection-text-content h1 {
-  font-size: 3rem;
+  font-size: var(--h1-font-size);
   font-family: "AvantGarde", sans-serif;
-
   margin-bottom: 1rem;
 }
 
 .herosection-text-content p {
-  font-size: 1.2rem;
+  font-size: var(--paragraph-font-size);
   margin-bottom: 1.5rem;
 }
 
-.buttons {
+.cta-buttons {
   display: flex;
   gap: 1rem;
 }
@@ -47,7 +46,7 @@
 }
 
 .image-content img {
-  width: 300px;
+  width: auto;
   height: auto;
 }
 
@@ -63,5 +62,8 @@
 
   .image-content {
     display: none;
+  }
+  .cta-buttons {
+    justify-content: center;
   }
 }

@@ -114,6 +114,18 @@ const Header = () => {
     return () => clearTimeout(timer);
   }, [charIndex, isTyping]);
 
+  const handleFocus = () => {
+    setShowDropdown(true);
+    document.body.classList.add("blurred-background"); // Apply blur effect
+  };
+
+  const handleBlur = () => {
+    setTimeout(() => {
+      setShowDropdown(false);
+      document.body.classList.remove("blurred-background"); // Remove blur effect
+    }, 200);
+  };
+
   return (
     <>
       {/* Level 1: Notification Header */}
@@ -144,22 +156,17 @@ const Header = () => {
               onClick={() => navigate("/")}
             />
           </div>
-          {/* <div className="course-select-container">
-          <select className="mega-menu-container">
-            <option value="">Explore course</option>
-          </select>
-        </div> */}
+
           <div className="main-dropdown-container">
+            {/* Background Blur */}
+            {isOpen && (
+              <div className="dropdown-blur" onClick={() => setIsOpen(false)} />
+            )}
+
             <button
               className="dropdown-button"
-              onFocus={() => {
-                setIsOpen(true);
-              }}
-              onBlur={() => {
-                setTimeout(() => setIsOpen(false), 200);
-              }}
-              // onMouseEnter={() => setIsOpen(true)}
-              // onMouseLeave={() => setIsOpen(false)}
+              onFocus={() => setIsOpen(true)}
+              onBlur={() => setTimeout(() => setIsOpen(false), 200)}
             >
               Explore <FaChevronDown />
             </button>
@@ -186,28 +193,21 @@ const Header = () => {
             )}
           </div>
 
-          {/* Search Bar with Icon */}
           <div className="search-container">
             <div className="search-box">
               <input
                 type="text"
                 className="search-input"
-                placeholder={placeholderText}
-                onFocus={() => {
-                  setShowDropdown(true);
-                  // setIsTyping(false);
-                }}
-                onBlur={() => {
-                  setTimeout(() => setShowDropdown(false), 200);
-                  setIsTyping(true); // Resume animation when blurred
-                }}
+                placeholder="Search..."
+                onFocus={handleFocus}
+                onBlur={handleBlur}
               />
               <button className="search-button">
                 <FontAwesomeIcon icon={faSearch} />
               </button>
             </div>
 
-            {/* Trending Searches Dropdown */}
+            {/* Dropdown */}
             {showDropdown && (
               <div className="dropdown-container">
                 <h4 className="dropdown-title">Trending searches</h4>
@@ -226,7 +226,6 @@ const Header = () => {
             )}
           </div>
 
-          {/* Auth & Social Buttons */}
           <div className="auth-buttons">
             <button
               className="auth-btn sign-up"
@@ -241,22 +240,25 @@ const Header = () => {
               Login
             </button>
 
-            {/* Globe Icon for Language Modal */}
             <button
               className="language-btn"
               onClick={() => setShowEnquiryModal(true)}
             >
               Join now
             </button>
-
-            {/* Social Icons */}
-            {/* <FontAwesomeIcon icon={faYoutube} className="social-icon youtube" />
-          <FontAwesomeIcon icon={faInstagram} className="social-icon instagram" />
-          <FontAwesomeIcon icon={faFacebook} className="social-icon facebook" /> */}
           </div>
+          <label class="hamburger">
+            <input type="checkbox" />
+            <svg viewBox="0 0 32 32">
+              <path
+                class="line line-top-bottom"
+                d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+              ></path>
+              <path class="line" d="M7 16 27 16"></path>
+            </svg>
+          </label>
         </header>
       </div>
-      {/* Language Modal */}
 
       <EnquiryModal
         isOpen={showEnquiryModal}

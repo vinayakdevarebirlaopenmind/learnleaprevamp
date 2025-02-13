@@ -5,7 +5,7 @@ import Login from "./components/Login/Login";
 import FloatingChatbot from "./components/FloatingChatbot/FloatingChatbot";
 import { CourseDetails } from "./components/CourseDetails/CourseDetails";
 import EnquireForm from "./components/Enquireform/EnquireForm";
-// import "../src/components/css/tokens.css";
+import "../src/components/css/tokens.css";
 function App() {
   return (
     <>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/enquireform" element={<EnquireForm />} />
         </Routes>
       </Router>
-      <FloatingChatbot />
+      {/* <FloatingChatbot /> */}
     </>
   );
 }

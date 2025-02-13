@@ -15,7 +15,7 @@ export const HeroSection = () => {
             Professional Certificates, and degrees from world-class universities
             and companies.
           </p>
-          <div className="buttons">
+          <div className="cta-buttons">
             <button className="join-btn" onClick={() => navigate("/enquireform")}>
               Join For Free
             </button>
