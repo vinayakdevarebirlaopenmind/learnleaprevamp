@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeroSection.css";
 import { useNavigate } from "react-router-dom";
+import Cursor from "./Cursor";
 
 export const HeroSection = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export const HeroSection = () => {
           />
         </div>
       </div>
-      <div id="cursor"></div>
+      {/* <Cursor/> */}
     </>
   );
 };

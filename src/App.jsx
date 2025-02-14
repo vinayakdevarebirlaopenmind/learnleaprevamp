@@ -6,8 +6,27 @@ import FloatingChatbot from "./components/FloatingChatbot/FloatingChatbot";
 import { CourseDetails } from "./components/CourseDetails/CourseDetails";
 import EnquireForm from "./components/Enquireform/EnquireForm";
 import "../src/components/css/tokens.css";
+import OfflinePage from "./components/OfflinePage/offlinePage";
+import { register } from "./serviceWorkerRegistration";
+import { useEffect, useState } from "react";
+
 function App() {
-  return (
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  useEffect(() => {
+    register();
+
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+  return isOnline ? (
     <>
       <Router>
         <Routes>
@@ -22,8 +41,9 @@ function App() {
           <Route path="/enquireform" element={<EnquireForm />} />
         </Routes>
       </Router>
-      {/* <FloatingChatbot /> */}
     </>
+  ) : (
+    <OfflinePage />
   );
 }
 
