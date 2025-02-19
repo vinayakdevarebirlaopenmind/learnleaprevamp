@@ -9,6 +9,7 @@ import "../src/components/css/tokens.css";
 import OfflinePage from "./components/OfflinePage/offlinePage";
 import { register } from "./serviceWorkerRegistration";
 import { useEffect, useState } from "react";
+import { PageNotFound } from "./components/PageNotFound/PageNotFound";
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -39,6 +40,7 @@ function App() {
           <Route path="/leadership-in-education" element={<CourseDetails />} />
           <Route path="/burlington-english" element={<CourseDetails />} />
           <Route path="/enquireform" element={<EnquireForm />} />
+          <Route path="*" element={<PageNotFound/>}></Route>
         </Routes>
       </Router>
     </>
