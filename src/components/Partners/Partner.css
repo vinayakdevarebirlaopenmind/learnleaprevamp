@@ -1,0 +1,57 @@
+/* Container for the entire section */
+.partners-section {
+  text-align: center;
+  background: #fff;
+}
+
+/* Heading styling */
+.partners-heading {
+  padding: 2rem;
+  font-size: var(--h3-font-size);
+  margin-top: 10px;
+  font-family: "AvantGarde", sans-serif;
+  color: #000;
+}
+
+.partners-section h2 span {
+  border-radius: 12px;
+  padding: 6px;
+  background: #6e6eff;
+  color: #fff;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.partners-section h2 span:hover {
+  background: #4949ff;
+  transform: scale(1.05); /* Slight scaling for a smooth effect */
+}
+
+/* Container for partner logos */
+.partner-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+/* Styling for each partner logo */
+.partner-img {
+  width: 300px;
+  height: 300px; /* Adjust size as needed */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Ensure images fit within the container */
+.partner-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ensure the image fits without distortion */
+  transition: transform 0.3s ease-in-out;
+}
+
+.partner-img img:hover {
+  transform: scale(1.1); /* Adjust scale factor as needed */
+}

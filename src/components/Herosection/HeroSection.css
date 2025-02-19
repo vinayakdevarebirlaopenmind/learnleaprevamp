@@ -1,0 +1,81 @@
+.herosection-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.8rem;
+}
+
+.herosection-text-content {
+  max-width: 50%;
+}
+
+.herosection-text-content h1 {
+  font-size: var(--h1-font-size);
+  font-family: "AvantGarde", sans-serif;
+  margin-bottom: 1rem;
+}
+
+.herosection-text-content p {
+  font-size: var(--paragraph-font-size);
+  margin-bottom: 1.5rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.join-btn {
+  background-color: blue;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.business-btn {
+  background-color: transparent;
+  color: blue;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid blue;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.image-content img {
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .herosection-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .herosection-text-content {
+    max-width: 100%;
+  }
+
+  .image-content {
+    display: none;
+  }
+  .cta-buttons {
+    justify-content: center;
+  }
+}
+.rocket {
+  display: inline-block;
+  animation: jump 1s infinite ease-in-out;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
