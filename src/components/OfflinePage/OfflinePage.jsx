@@ -6,6 +6,7 @@ function OfflinePage() {
       <div style={styles.container}>
         <h1 style={styles.heading}>No Internet Connection</h1>
         <p style={styles.text}>Please check your connection and try again.</p>
+        <p style={styles.text}>Until then call us at +91 79777 68801</p>
       </div>
     </>
   );

@@ -89,30 +89,24 @@
 
 /* .login-form input, */
 .login-form button {
-  /* width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #3d19cc;
-  color: white; */
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px; /* Space between icon and text */
-  background-color: #3d19cc;
-  color: white;
-  border: none;
+  background-color: #fff;
+  color: #3d19cc;
+  border: 1px solid #3d19cc;
   padding: 12px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .login-form button:hover {
   cursor: pointer;
   background-color: #3d19cc;
+  color: #fff;
 }
 
 .login-terms,

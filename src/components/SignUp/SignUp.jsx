@@ -40,7 +40,7 @@ const SignUp = () => {
           </label> */}
 
           <form onSubmit={handleSubmit}>
-            <div class="input-container">
+            <div className="input-container">
               <input
                 type="text"
                 name="fullName"
@@ -49,9 +49,9 @@ const SignUp = () => {
                 onChange={handleChange}
                 required
               />
-              <label for="fullName">Full name</label>
+              <label htmlFor="fullName">Full name</label>
             </div>
-            <div class="input-container">
+            <div className="input-container">
               <input
                 type="email"
                 name="email"
@@ -60,7 +60,7 @@ const SignUp = () => {
                 onChange={handleChange}
                 required
               />
-              <label for="Email">Email</label>
+              <label htmlFor="Email">Email</label>
             </div>
 
             {/* <button type="submit">Continue with email</button> */}
