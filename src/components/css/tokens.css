@@ -18,5 +18,5 @@
   --image-height: clamp(auto, 150px, 300px);
 }
 body {
-  background-color: #f8f9fa;
+  /* background-color: #f8f9fa; */
 }
