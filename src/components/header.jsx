@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faSearch, faGlobe } from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebook,
-  faInstagram,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+import { faTimes, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FaChevronDown } from "react-icons/fa"; // Import dropdown icon
 import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
 import Learnleaplogo from "../assets/image/LearnLeap Final Logo.png";
 import { useNavigate } from "react-router-dom";
 import "./css/Modal.css";
-import { motion } from "framer-motion";
-import { FaPhoneAlt, FaFlag, FaGlobe } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
 import { EnquiryModal } from "./Modal/EnquiryModal";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../store/authSlice";
 const Header = () => {
   const [showNotification, setShowNotification] = useState(true);
   const [isClosing, setIsClosing] = useState(false);
@@ -26,7 +20,14 @@ const Header = () => {
   const [isTyping, setIsTyping] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout()); // Clear Redux state
+    localStorage.removeItem("accessToken"); // Remove token from storage
+    navigate("/login"); // Redirect to login
+  };
+  // Get user info from Redux state
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
   // Add this state variable
   const [timeLeft, setTimeLeft] = useState({
     hours: 12,
@@ -62,6 +63,7 @@ const Header = () => {
       return () => clearInterval(timer);
     }
   }, [showNotification, isClosing]);
+
   const trendingSearches = [
     "Certificate Program for ECCEd",
     "Diploma Program for ECCEd",
@@ -70,25 +72,11 @@ const Header = () => {
     "Burlington English Program",
   ];
 
-  const languages = [
-    "English",
-    "हिन्दी",
-    "বাংলা",
-    "தமிழ்",
-    "తెలుగు",
-    "Français",
-    "Español",
-    "Deutsch",
-    "中文",
-    "日本語",
-  ];
-
   const handleClose = () => {
     setIsClosing(true);
-
     setTimeout(() => {
       setShowNotification(false);
-    }, 500); // Match this duration with the CSS transition duration
+    }, 500);
   };
   // Add this useEffect hook for the typewriter effect
   useEffect(() => {
@@ -128,7 +116,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Level 1: Notification Header */}
       <div className="container">
         {showNotification && (
           <div className={`header-notification ${isClosing ? "closing" : ""}`}>
@@ -146,7 +133,6 @@ const Header = () => {
             </button>
           </div>
         )}
-        {/* Level 2: Main Header */}
         <header className="main-header">
           <div className="logo">
             <img
@@ -158,7 +144,6 @@ const Header = () => {
           </div>
 
           <div className="main-dropdown-container">
-            {/* Background Blur */}
             {isOpen && (
               <div className="dropdown-blur" onClick={() => setIsOpen(false)} />
             )}
@@ -207,7 +192,6 @@ const Header = () => {
               </button>
             </div>
 
-            {/* Dropdown */}
             {showDropdown && (
               <div className="dropdown-container">
                 <h4 className="dropdown-title">Trending searches</h4>
@@ -228,24 +212,38 @@ const Header = () => {
 
           <div className="auth-buttons">
             <button
-              className="auth-btn sign-up"
-              onClick={() => navigate("/signup")}
-            >
-              Sign Up
-            </button>
-            <button
-              className="auth-btn login"
-              onClick={() => navigate("/login")}
-            >
-              Login
-            </button>
-
-            <button
               className="language-btn"
               onClick={() => setShowEnquiryModal(true)}
             >
               Join now
-            </button>
+            </button>{" "}
+            {!isAuthenticated ? (
+              <>
+                <button
+                  className="auth-btn sign-up"
+                  onClick={() => navigate("/signup")}
+                >
+                  Sign Up
+                </button>
+                <button
+                  className="auth-btn login"
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </button>
+              </>
+            ) : (
+              <div className="profile-dropdown">
+                <button className="profile-btn">
+                  <img src={user.image} alt="Profile" className="profile-img" />
+                  {user.name}
+                </button>
+                <div className="dropdown-content">
+                  <button onClick={() => navigate("/profile")}>Profile</button>
+                  <button onClick={handleLogout}>Logout</button>
+                </div>
+              </div>
+            )}
           </div>
           <label className="hamburger">
             <input type="checkbox" />

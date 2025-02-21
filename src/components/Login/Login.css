@@ -21,13 +21,14 @@
 
 /* Right Side (Form Section) */
 .login-form {
-  padding: 40px;
+  /* padding: 40px; */
   max-width: 400px;
   display: grid;
   gap: 15px;
 }
 
 .login-form h1 {
+  font-size: var(--h3-font-size);
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
@@ -128,6 +129,7 @@
 @media (max-width: 768px) {
   .login-container {
     grid-template-columns: 1fr;
+    top: 50%;
     text-align: center;
   }
 

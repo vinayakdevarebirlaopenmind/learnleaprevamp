@@ -56,7 +56,7 @@
 
 /* Input Field */
 .signup-form input {
-  width: 100%;
+  width: 93.5%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -108,10 +108,14 @@
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #3d19cc;
 }
 
 .signup-form button:hover {
-  background-color: #3d19cc;
+  background-color: #fff;
+  color: #3d19cc;
+  border: 1px solid #3d19cc;
 }
 
 .signup-terms,
