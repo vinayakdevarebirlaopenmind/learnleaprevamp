@@ -16,7 +16,7 @@ const PartnersCarousel = () => {
   return (
     <div className="partners-section">
       <h2 className="partners-heading">
-        We collaborate with the <span>WORLD's TOP PARTNER'S</span>
+        We collaborate with the <span>world's top partner</span>
       </h2>
       <div className="partner-container">
         {partners.map((logo, index) => (

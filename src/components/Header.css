@@ -346,6 +346,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
+  text-decoration: none;
 }
 .drodown-menu ul:hover,
 .trending-item:hover {
@@ -630,6 +631,10 @@
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+  }
+  .profile-dropdown
+  {
+    display: none;
   }
   .search-container,
   .auth-btn,

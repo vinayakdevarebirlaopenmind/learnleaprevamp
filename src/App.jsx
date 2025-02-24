@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../src/components/Home/Home";
-import Signup from "../src/components/SignUp/SignUp";
+import Signup, { TestComponent } from "../src/components/SignUp/SignUp";
 import Login from "./components/Login/Login";
 import FloatingChatbot from "./components/FloatingChatbot/FloatingChatbot";
 import { CourseDetails } from "./components/CourseDetails/CourseDetails";
@@ -13,7 +13,6 @@ import PageNotFound from "./components/PageNotfound/PageNotFound";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import UserProfile from "./components/UserProfile/UserProfile";
 import PrivateRoute from "./components/PrivateRoute";
-
 function App() {
   //checks if user is online or not then it shows him a custom offline page
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -72,6 +71,8 @@ function App() {
             />
             <Route path="/burlington-english" element={<CourseDetails />} />
             <Route path="/enquireform" element={<EnquireForm />} />
+
+            <Route path="/testcomponent" element={<TestComponent />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </Router>

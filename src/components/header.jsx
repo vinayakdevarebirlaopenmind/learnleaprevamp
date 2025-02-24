@@ -10,6 +10,8 @@ import "./css/Modal.css";
 import { EnquiryModal } from "./Modal/EnquiryModal";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/authSlice";
+import { Link } from "react-router-dom";
+import { menuItems, trendingSearches } from "../constants/constants";
 const Header = () => {
   const [showNotification, setShowNotification] = useState(true);
   const [isClosing, setIsClosing] = useState(false);
@@ -21,6 +23,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
   const handleLogout = () => {
     dispatch(logout()); // Clear Redux state
     localStorage.removeItem("accessToken"); // Remove token from storage
@@ -63,14 +69,6 @@ const Header = () => {
       return () => clearInterval(timer);
     }
   }, [showNotification, isClosing]);
-
-  const trendingSearches = [
-    "Certificate Program for ECCEd",
-    "Diploma Program for ECCEd",
-    "Certificate Program for K12 Teachers",
-    "Certificate Program for Leadership in Education",
-    "Burlington English Program",
-  ];
 
   const handleClose = () => {
     setIsClosing(true);
@@ -160,19 +158,28 @@ const Header = () => {
               <div className="dropdown-menu">
                 <h4>Links #</h4>
                 <ul>
-                  <li>About Learnleap</li>
-                  <li>Events</li>
-                  <li>Enquire Now</li>
-                  <li>FAQs</li>
+                  {menuItems.map((item, index) => (
+                    <li
+                      key={index}
+                      onClick={() => handleNavigation(item.path)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {item.name}
+                    </li>
+                  ))}
                 </ul>
 
                 <h4>Courses we offer</h4>
                 <ul>
-                  <li>Certificate Program for ECCEd</li>
-                  <li>Diploma Program for ECCEd</li>
-                  <li>Certificate Program for K12 Teachers</li>
-                  <li>Certificate Program for Leadership in Education</li>
-                  <li>Burlington English Program</li>
+                  {trendingSearches.map((item, index) => (
+                    <li
+                      key={index}
+                      onClick={() => handleNavigation(item.path)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {item.name}
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
@@ -197,12 +204,17 @@ const Header = () => {
                 <h4 className="dropdown-title">Trending searches</h4>
                 <div className="trending-list">
                   {trendingSearches.map((item, index) => (
-                    <div key={index} className="trending-item">
+                    <div
+                      key={index}
+                      className="trending-item"
+                      onClick={() => handleNavigation(item.path)}
+                      style={{ cursor: "pointer" }}
+                    >
                       <FontAwesomeIcon
                         icon={faArrowTrendUp}
                         className="trend-icon"
                       />
-                      {item}
+                      {item.name}
                     </div>
                   ))}
                 </div>

@@ -5,10 +5,6 @@
 .outlined-text {
   font-size: var(--h2-font-size);
   font-weight: 900;
-  font-family: "AvantGarde", sans-serif;
-  color: transparent;
-  -webkit-text-stroke: 1.5px #13002c; /* Outline effect */
-  text-transform: uppercase;
   position: relative;
   display: inline-block;
 }
@@ -47,17 +43,18 @@
   padding: 1rem 2rem;
   scroll-behavior: smooth;
 }
-
 .course-card {
   background: white;
   padding: 15px;
   border-radius: 8px;
-  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
   border: 2px solid #999;
   width: 300px;
   overflow: hidden;
   text-align: left;
   transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .course-card:hover {
@@ -74,38 +71,59 @@
 
 .course-details {
   padding: 15px;
+  flex-grow: 1;
 }
 
-.course-title {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.instructor {
-  font-size: 0.9rem;
-  color: #777;
-}
-
-.rating {
-  font-size: 0.9rem;
-  color: #ff9800;
-  margin: 5px 0;
+.course-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: auto;
+  padding: 10px 0;
 }
 
 .price {
   font-size: 1.1rem;
   font-weight: bold;
   color: #000;
-  margin-top: 5%;
+  text-align: start;
 }
-.current-price{
+
+.current-price {
   background: #cbff97;
   border-radius: 8px;
   padding: 4px;
 }
+
 .old-price {
   text-decoration: line-through;
   color: #999;
   margin-left: 10px;
+}
+
+.course-to-cart {
+  background: blue;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.course-to-cart:hover {
+  background: rgb(0, 0, 145);
+}
+
+.cart-icon {
+  font-size: 1.2rem;
 }

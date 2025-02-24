@@ -1,7 +1,7 @@
 /* Container for the entire section */
 .partners-section {
   text-align: center;
-  background-color: #f8f9fa;
+  background: #e4efff;
 }
 
 /* Heading styling */
@@ -9,7 +9,6 @@
   padding: 2rem;
   font-size: var(--h3-font-size);
   margin-top: 10px;
-  font-family: "AvantGarde", sans-serif;
   color: #000;
 }
 
