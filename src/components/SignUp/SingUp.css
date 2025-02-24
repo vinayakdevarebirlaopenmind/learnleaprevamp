@@ -5,6 +5,7 @@
   justify-content: center;
   padding: 20px;
   height: auto;
+  margin-top: 1rem;
 }
 
 /* Left Side (Image Section) */
@@ -21,7 +22,7 @@
 
 /* Right Side (Form Section) */
 .signup-form {
-  padding: 40px;
+  /* padding: 40px; */
   max-width: 400px;
   display: grid;
   gap: 15px;
@@ -83,7 +84,7 @@
 .signup-form input:focus + label,
 .signup-form input:not(:placeholder-shown) + label {
   top: 0;
-  font-size: 12px;
+  font-size: 15px;
   color: #3d19cc;
 }
 
@@ -131,6 +132,60 @@
 
 .signup-form a:hover {
   text-decoration: underline;
+}
+.or-option {
+  text-align: center;
+}
+.password-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+  color: #007bff;
+}
+
+.password-strength {
+  margin-top: 10px;
+  font-size: 14px;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.password-strength ul {
+  list-style: none;
+  padding: 0;
+}
+
+.password-strength li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.valid {
+  color: green;
+  font-weight: bold;
+}
+
+.invalid {
+  color: red;
+}
+.error-text {
+  color: red;
 }
 
 /* 📱 Mobile View - Hide Image and Stack Form */

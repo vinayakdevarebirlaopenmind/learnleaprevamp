@@ -5,42 +5,95 @@ import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from "@react-oauth/google";
 import { setUser } from "../../store/authSlice";
-import { useGoogleAuthMutation } from "../../store/apiSlice";
+import { useGoogleAuthMutation, useSignupMutation } from "../../store/apiSlice";
 import { useDispatch } from "react-redux";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [googleAuth] = useGoogleAuthMutation();
   const dispatch = useDispatch();
+  const [signup] = useSignupMutation();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
+    mobileNumber: "",
+    password: "",
   });
 
+  const [passwordCriteria, setPasswordCriteria] = useState({
+    length: false,
+    uppercase: false,
+    lowercase: false,
+    number: false,
+    specialChar: false,
+  });
+
+  const [showPassword, setShowPassword] = useState(false); // 👁️ Toggle password visibility
+  const [showPasswordRules, setShowPasswordRules] = useState(false); // 🔍 Show rules on focus
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    if (name === "password") {
+      validatePassword(value);
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Data:", formData);
+  const validatePassword = (password) => {
+    const criteria = {
+      length: password.length >= 8,
+      uppercase: /[A-Z]/.test(password),
+      lowercase: /[a-z]/.test(password),
+      number: /[0-9]/.test(password),
+      specialChar: /[!@#$%^&*(),.?":{}|<>]/.test(password),
+    };
+
+    setPasswordCriteria(criteria);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log("Submitting form data:", formData);
+
+      const response = await signup(formData).unwrap();
+      console.log("Signup API Response:", response);
+      console.log(response.user);
+
+      if (!response.user || !response.token) {
+        setErrorMessage("Signup failed: Missing user data or token");
+        return;
+      }
+
+      // ✅ Ensure both user & token are stored
+      dispatch(setUser({ user: response.user, token: response.token }));
+      localStorage.setItem("accessToken", response.token);
+      localStorage.setItem("user", JSON.stringify(response.user)); // <-- Fix: Ensure it's stringified
+
+      navigate("/home");
+    } catch (error) {
+      console.error("Signup Error:", error);
+      setErrorMessage(error?.data?.message || "Signup failed. Try again!");
+    }
+  };
+
   const responseGoogle = async (authResult) => {
     try {
       if (!authResult.code) throw new Error("Google authentication failed");
 
-      // Send code to backend
       const data = await googleAuth(authResult.code).unwrap();
-      console.log("Google Auth Response:", data); // ✅ Debugging
+      console.log("Google Auth Response:", data);
 
       if (data?.token && data?.user) {
-        // ✅ Save user & token in Redux and LocalStorage
         dispatch(setUser({ user: data.user, token: data.token }));
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("accessToken", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
 
-        // ✅ Navigate to Profile Page
         navigate("/home");
       } else {
         console.error("Invalid response from server:", data);
@@ -55,53 +108,116 @@ const SignUp = () => {
     onError: (error) => console.error("Google Login Error:", error),
     flow: "auth-code",
   });
+
   return (
     <>
       <Header />
       <div className="signup-container">
         <div className="signup-image">
           <img
-            src="https://frontends.udemycdn.com/components/auth/desktop-illustration-step-2-x1.webp"
+            src="https://frontends.udemycdn.com/components/auth/desktop-illustration-step-1-x1.webp"
             alt="Signup Illustration"
           />
         </div>
         <div className="signup-form">
-          <h1>Sign up with email</h1>
+          <h1>Sign Up and Take the Leap Toward Success!</h1>
           <form onSubmit={handleSubmit}>
+            {errorMessage && <p className="error-text">{errorMessage}</p>}
+
             <div className="input-container">
               <input
                 type="text"
                 name="fullName"
-                placeholder="Full name"
                 value={formData.fullName}
                 onChange={handleChange}
                 required
               />
               <label htmlFor="fullName">Full name</label>
             </div>
+
             <div className="input-container">
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
-              <label htmlFor="Email">Email</label>
+              <label htmlFor="email">Email</label>
             </div>
-            <button type="submit">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                fill="currentColor"
-                viewBox="0 0 16 16"
+            <div className="input-container">
+              <input
+                type="tel"
+                name="mobileNumber"
+                value={formData.mobileNumber}
+                onChange={handleChange}
+                required
+              />
+              <label htmlFor="mobileNumber">Mobile Number</label>
+            </div>
+
+            {/* Password Field with Eye Icon */}
+            <div className="input-container password-container">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                onFocus={() => setShowPasswordRules(true)}
+                onBlur={() => setShowPasswordRules(false)}
+                required
+              />
+              <label htmlFor="password">Password</label>
+              <span
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
               >
-                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383L8.472 9.5a1 1 0 0 1-1.055 0L1 5.383V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5.383z" />
-              </svg>
-              Continue with Email
-            </button>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
+
+            {/* Password Strength Indicator (Visible on Click Only) */}
+            {showPasswordRules && (
+              <motion.div
+                className="password-strength"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p>Password must include:</p>
+                <ul>
+                  <li className={passwordCriteria.length ? "valid" : "invalid"}>
+                    ✅ At least 8 characters
+                  </li>
+                  <li
+                    className={passwordCriteria.uppercase ? "valid" : "invalid"}
+                  >
+                    ✅ 1 uppercase letter
+                  </li>
+                  <li
+                    className={passwordCriteria.lowercase ? "valid" : "invalid"}
+                  >
+                    ✅ 1 lowercase letter
+                  </li>
+                  <li className={passwordCriteria.number ? "valid" : "invalid"}>
+                    ✅ 1 number
+                  </li>
+                  <li
+                    className={
+                      passwordCriteria.specialChar ? "valid" : "invalid"
+                    }
+                  >
+                    ✅ 1 special character
+                  </li>
+                </ul>
+              </motion.div>
+            )}
+
+            <button type="submit">Create an account</button>
+            <div>
+              <h4 className="or-option">OR</h4>
+            </div>
             <button type="button" onClick={googleLogin}>
               Continue with <FcGoogle size={20} style={{ marginLeft: "8px" }} />
             </button>

@@ -235,8 +235,18 @@ const Header = () => {
             ) : (
               <div className="profile-dropdown">
                 <button className="profile-btn">
-                  <img src={user.image} alt="Profile" className="profile-img" />
-                  {user.name}
+                  {user?.image ? (
+                    <img
+                      src={user.image}
+                      alt="Profile"
+                      className="profile-img"
+                    />
+                  ) : (
+                    <div className="fallback-avatar">
+                      {user?.name?.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                  {user?.name}
                 </button>
                 <div className="dropdown-content">
                   <button onClick={() => navigate("/profile")}>Profile</button>

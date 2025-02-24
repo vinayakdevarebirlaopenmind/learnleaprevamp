@@ -524,16 +524,33 @@
   border-radius: 50%;
   margin-right: 8px;
 }
+.fallback-avatar {
+  width: 32px;
+  height: 32px;
+  background-color: #000; /* Change color as needed */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-right: 6px;
+
+  font-weight: bold;
+  border-radius: 50%;
+}
 
 .dropdown-content {
   display: none;
   position: absolute;
   background: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(70, 57, 57, 0.1);
   min-width: 120px;
   right: 0;
   border-radius: 5px;
   overflow: hidden;
+  border: 2px solid blue;
+  /* margin-top: 10px; */
+  margin-left: 10px;
 }
 
 .profile-dropdown:hover .dropdown-content {
@@ -604,7 +621,6 @@
     align-items: center;
     padding: 4px 10px;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   .search-container {
     max-width: 300px;

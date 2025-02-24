@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080/auth",
+    baseUrl: "http://localhost:8080", // ✅ Set base URL globally
     credentials: "include",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("accessToken");
@@ -14,13 +14,29 @@ export const apiSlice = createApi({
     },
   }),
   endpoints: (builder) => ({
+    signup: builder.mutation({
+      query: (userData) => ({
+        url: "/signup", // ✅ No need for full URL, `baseUrl` is already set
+        method: "POST",
+        body: userData,
+      }),
+    }),
+    login: builder.mutation({
+      query: (userData) => ({
+        url: "/login",
+        method: "POST",
+        body: userData,
+      }),
+    }),
     googleAuth: builder.mutation({
       query: (code) => ({
-        url: `/google?code=${code}`, // ✅ Pass code as query param
-        method: "GET", // ✅ Use GET method
+        url: `/auth/google?code=${code}`,
+        method: "GET",
       }),
     }),
   }),
 });
 
-export const { useGoogleAuthMutation } = apiSlice;
+// ✅ Fix incorrect export name
+export const { useSignupMutation, useGoogleAuthMutation, useLoginMutation } =
+  apiSlice;
