@@ -13,6 +13,7 @@ import PageNotFound from "./components/PageNotfound/PageNotFound";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import UserProfile from "./components/UserProfile/UserProfile";
 import PrivateRoute from "./components/PrivateRoute";
+import { CartPage } from "./components/UserCart/UserCart";
 function App() {
   //checks if user is online or not then it shows him a custom offline page
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -71,9 +72,13 @@ function App() {
             />
             <Route path="/burlington-english" element={<CourseDetails />} />
             <Route path="/enquireform" element={<EnquireForm />} />
+            <Route path="/cart" element={<CartPage />} />
+
 
             <Route path="/testcomponent" element={<TestComponent />} />
+            
             <Route path="*" element={<PageNotFound />} />
+
           </Routes>
         </Router>
       </GoogleOAuthProvider>

@@ -1,22 +1,42 @@
 :root {
   /*  typography scaling */
-  --h1-font-size: clamp(
-    2rem,
-    5vw,
-    4rem
-  ); /* Adapts from 2rem to 4rem based on screen size */
+  --h1-font-size: clamp(2rem, 5vw, 4rem);
   --h2-font-size: clamp(1.75rem, 4vw, 3rem);
   --h3-font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  --h4-font-size: clamp(1.5rem, 3.5vw, 2rem);
   --body-font-size: clamp(1rem, 2vw, 1.25rem);
   --paragraph-font-size: clamp(1rem, 1vw, 1.2rem);
+
+  /* container padding */
   --container-padding-sm: clamp(0.5rem, 1vw, 1rem); /* Small elements */
   --container-padding-md: clamp(0.8rem, 2vw, 1.5rem); /* Medium sections */
   --container-padding-lg: clamp(1rem, 3vw, 2rem); /* Large containers */
+
+  /* line height */
   --line-height: 1.2;
+
+  /* container widht */
   --container-width: clamp(300px, 80vw, 1400px);
+
+  /* image height and width */
   --image-width: clamp(auto, 150px, 300px);
   --image-height: clamp(auto, 150px, 300px);
-}
-body {
-  /* background-color: #f8f9fa; */
+
+  /* margin and padding */
+  --margin: 0 clamp(5%, 10vw, 10%);
+  --padding-top: clamp(32px, 5vw, 64px);
+  --padding-bottom: clamp(32px, 5vw, 64px);
+
+  /* background color */
+  --course-bg-color: #6039fc;
+  --light-blue-color: #ab96ff;
+  --border-color: blue;
+
+  /* color */
+  --black-color: #0000;
+  --white-color: #fff;
+  --primbuttn: #4685ff;
+  --accent: #ffb084;
+
+  /* header notification */
 }

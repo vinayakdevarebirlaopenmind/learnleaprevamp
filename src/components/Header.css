@@ -400,18 +400,31 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  border: 2px solid blue;
+  background: white;
+  color: blue;
+}
+
+.auth-btn:hover {
+  background: blue;
+  color: white;
+}
+
+.auth-btn.active {
+  background: blue;
+  color: white;
 }
 
 /* Sign Up: Filled Dark Blue */
 .sign-up {
-  background: blue;
-  color: white;
+  background: white;
+  color: blue;
   border: 2px solid blue;
 }
 
 .sign-up:hover {
-  background: white;
-  color: blue;
+  background: blue;
+  color: white;
   border: 2px solid blue;
 }
 
@@ -427,22 +440,24 @@
   color: white;
 }
 
-/* Globe Icon Button */
-.language-btn {
+.joinnow-btn {
   border-radius: 8px;
   background: none;
   padding: 8px 20px;
   border: 2px solid blue;
-  /* font-size: 1.2rem; */
   color: blue;
-
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
-.language-btn:hover {
+.joinnow-btn:hover {
   background: blue;
-  color: #fff;
+  color: white;
+}
+
+.joinnow-btn.active {
+  background: blue;
+  color: white;
 }
 
 /* Social Icons */
@@ -628,17 +643,62 @@
   }
 }
 
+.cart-icon-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-icon {
+  font-size: 24px;
+  color: #000;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 3px 7px;
+  border-radius: 50%;
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 @media (max-width: 768px) {
   .hamburger {
     display: block;
   }
-  .profile-dropdown
-  {
+  .profile-dropdown {
     display: none;
   }
   .search-container,
   .auth-btn,
-  .language-btn {
+  .joinnow-btn {
+    display: none;
+  }
+
+  .cart-icon-container {
     display: none;
   }
 }

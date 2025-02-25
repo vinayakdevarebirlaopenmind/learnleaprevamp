@@ -1,15 +1,17 @@
 /* Container for the entire section */
 .partners-section {
-  text-align: center;
-  background: #e4efff;
+  text-align: start;
+  margin: var(--margin);
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
 }
 
 /* Heading styling */
 .partners-heading {
-  padding: 2rem;
-  font-size: var(--h3-font-size);
-  margin-top: 10px;
+  font-size: var(--h4-font-size);
   color: #000;
+  margin-bottom: 1rem;
+  font-weight: normal;
 }
 
 .partners-section h2 span {
@@ -30,16 +32,15 @@
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  gap: 20px;
   overflow-x: auto;
 }
 
 /* Styling for each partner logo */
 .partner-img {
   width: 300px;
-  height: 300px; /* Adjust size as needed */
+  /* height: 300px; Adjust size as needed */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
@@ -52,5 +53,5 @@
 }
 
 .partner-img img:hover {
-  transform: scale(1.1); /* Adjust scale factor as needed */
+  /* transform: scale(1.1); Adjust scale factor as needed */
 }

@@ -94,8 +94,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px; /* Space between icon and text */
-  background-color: #fff;
-  color: #3d19cc;
+  background-color: #3d19cc;
+  color: #fff;
   border: 1px solid #3d19cc;
   padding: 12px;
   border-radius: 5px;
@@ -106,8 +106,8 @@
 
 .login-form button:hover {
   cursor: pointer;
-  background-color: #3d19cc;
-  color: #fff;
+  background-color: #fff;
+  color: #3d19cc;
 }
 
 .login-terms,

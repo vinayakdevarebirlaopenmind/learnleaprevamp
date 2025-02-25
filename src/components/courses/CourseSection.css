@@ -1,38 +1,39 @@
 .course-section {
-  padding: 2rem;
-  text-align: center;
+  text-align: start;
+  margin: var(--margin);
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
 }
 .outlined-text {
-  font-size: var(--h2-font-size);
-  font-weight: 900;
+  font-size: var(--h4-font-size);
+  font-weight: normal;
   position: relative;
   display: inline-block;
 }
 
 .outlined-text::before {
-  content: attr(data-text); /* Duplicate the text */
+  content: attr(data-text);
   position: absolute;
   left: 0;
   top: 0;
   color: #000;
   -webkit-text-stroke: 0;
-  clip-path: circle(0% at var(--x) var(--y)); /* Initially, no part is filled */
+  clip-path: circle(0% at var(--x) var(--y));
   transition: all 0.2s ease-out;
-  /* z-index: -1; */
 }
 
 .outlined-text:hover::before {
-  clip-path: circle(20% at var(--x) var(--y)); /* Reveal part of the text */
+  clip-path: circle(20% at var(--x) var(--y));
 }
 
 .subheading {
-  font-size: 1.1rem;
+  font-size: var(--paragraph-font-size);
   color: #000;
   margin-bottom: 20px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
-.course-cards-section{
+.course-cards-section {
   padding: 0.5rem;
 }
 .course-list {
@@ -40,7 +41,7 @@
   justify-content: center;
   gap: 20px;
   overflow-x: auto;
-  padding: 1rem 2rem;
+  padding: 1rem;
   scroll-behavior: smooth;
 }
 .course-card {
@@ -70,10 +71,22 @@
 }
 
 .course-details {
-  padding: 15px;
   flex-grow: 1;
 }
-
+.course-title {
+  color: rgb(51, 51, 51);
+  font-size: var(--paragraph-font-size) !important;
+  margin-top: 5px;
+}
+.instructor {
+  font-size: 0.9rem;
+  color: rgb(119, 119, 119);
+}
+.rating {
+  font-size: 0.9rem;
+  color: rgb(255, 152, 0);
+  margin: 5px 0px;
+}
 .course-footer {
   display: flex;
   flex-direction: column;
@@ -81,12 +94,11 @@
   margin-top: auto;
   padding: 10px 0;
 }
-
 .price {
   font-size: 1.1rem;
-  font-weight: bold;
-  color: #000;
-  text-align: start;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin-top: 5%;
 }
 
 .current-price {
@@ -102,8 +114,7 @@
 }
 
 .course-to-cart {
-  background: blue;
-  color: white;
+  color: blue;
   font-size: 1rem;
   font-weight: bold;
   border: none;
@@ -112,6 +123,7 @@
   margin-top: 10px;
   cursor: pointer;
   display: flex;
+  border: 1px solid blue;
   align-items: center;
   gap: 8px;
   transition: background 0.3s;
@@ -120,10 +132,8 @@
   justify-content: center;
 }
 
-.course-to-cart:hover {
-  background: rgb(0, 0, 145);
-}
-
 .cart-icon {
+  color: rgb(0, 0, 145);
+
   font-size: 1.2rem;
 }

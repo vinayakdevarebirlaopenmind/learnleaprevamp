@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FaChevronDown } from "react-icons/fa"; // Import dropdown icon
+import { FaChevronDown, FaShoppingCart } from "react-icons/fa"; // Import dropdown icon
 import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
 import Learnleaplogo from "../assets/image/LearnLeap Final Logo.png";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./css/Modal.css";
 import { EnquiryModal } from "./Modal/EnquiryModal";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,6 +23,11 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [activeButton, setActiveButton] = useState(() => {
+    return sessionStorage.getItem("activeButton") || null;
+  });
+  const location = useLocation();
+  const [isActive, setIsActive] = useState(false);
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -112,10 +117,37 @@ const Header = () => {
     }, 200);
   };
 
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const [shake, setShake] = useState(false);
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
+    }
+  }, [cartItems]);
+
+  useEffect(() => {
+    if (location.pathname === "/signup") {
+      setActiveButton("signup");
+    } else if (location.pathname === "/login") {
+      setActiveButton("login");
+    }
+  }, [location.pathname]);
+
+  const handleClick = (buttonType, path) => {
+    setActiveButton(buttonType);
+    sessionStorage.setItem("activeButton", buttonType); // Store state in sessionStorage
+    navigate(path);
+  };
+  const handleClickJoinNow = () => {
+    setIsActive(true);
+    setShowEnquiryModal(true);
+  };
   return (
     <>
       <div className="container">
-        {showNotification && (
+        {showNotification && (  
           <div className={`header-notification ${isClosing ? "closing" : ""}`}>
             <span>
               New to LearnLeap? Shop now to get a limited time offer: courses
@@ -223,23 +255,37 @@ const Header = () => {
           </div>
 
           <div className="auth-buttons">
+            <div
+              className="cart-icon-container"
+              onClick={() => navigate("/cart")}
+            >
+              <FaShoppingCart className={`cart-icon ${shake ? "shake" : ""}`} />
+              {cartItems.length > 0 && (
+                <span className="cart-count">{cartItems.length}</span>
+              )}
+            </div>
             <button
-              className="language-btn"
-              onClick={() => setShowEnquiryModal(true)}
+              className={`joinnow-btn ${isActive ? "active" : ""}`}
+              onClick={handleClickJoinNow}
             >
               Join now
-            </button>{" "}
+            </button>
             {!isAuthenticated ? (
               <>
                 <button
-                  className="auth-btn sign-up"
-                  onClick={() => navigate("/signup")}
+                  className={`auth-btn sign-up ${
+                    activeButton === "signup" ? "active" : ""
+                  }`}
+                  onClick={() => handleClick("signup", "/signup")}
                 >
                   Sign Up
                 </button>
+
                 <button
-                  className="auth-btn login"
-                  onClick={() => navigate("/login")}
+                  className={`auth-btn login ${
+                    activeButton === "login" ? "active" : ""
+                  }`}
+                  onClick={() => handleClick("login", "/login")}
                 >
                   Login
                 </button>
@@ -267,6 +313,7 @@ const Header = () => {
               </div>
             )}
           </div>
+
           <label className="hamburger">
             <input type="checkbox" />
             <svg viewBox="0 0 32 32">

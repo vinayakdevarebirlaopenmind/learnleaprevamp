@@ -12,7 +12,7 @@ export const HeroSection = () => {
           <h1>Bridging Knowledge,</h1>
           <h1>Building Careers</h1>
           <p>
-            Start, switch, or advance your career with more than 10,000 courses,
+            Start, switch, or advance your career with our courses,
             Professional Certificates, and degrees from world-class universities
             and companies.
           </p>
