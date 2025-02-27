@@ -31,12 +31,38 @@
   --course-bg-color: #6039fc;
   --light-blue-color: #ab96ff;
   --border-color: blue;
+  --badge-color: rgb(250, 250, 116);
 
   /* color */
   --black-color: #0000;
   --white-color: #fff;
   --primbuttn: #4685ff;
   --accent: #ffb084;
+  --blue-text-color: blue;
+  --subheading-text-color: #2e2e2ed0;
 
-  /* header notification */
+  /* Background gradient color */
+  --gradient-background: linear-gradient(
+    120deg,
+    var(--light-blue-color),
+    var(--border-color)
+  );
+
+  --hover-gradient-background: linear-gradient(
+    120deg,
+    var(--border-color) ,var(--light-blue-color)
+  );
+
+  /* button border radius  */
+  --button-border-radius: 8px;
+}
+
+.color-effect {
+  background: linear-gradient(
+    120deg,
+    var(--light-blue-color),
+    var(--border-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

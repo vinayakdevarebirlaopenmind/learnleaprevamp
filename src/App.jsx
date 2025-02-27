@@ -75,7 +75,6 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
 
 
-            <Route path="/testcomponent" element={<TestComponent />} />
             
             <Route path="*" element={<PageNotFound />} />
 

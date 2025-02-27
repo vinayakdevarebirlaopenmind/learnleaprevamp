@@ -4,6 +4,7 @@
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
 }
+
 .outlined-text {
   font-size: var(--h4-font-size);
   font-weight: normal;
@@ -17,7 +18,6 @@
   left: 0;
   top: 0;
   color: #000;
-  -webkit-text-stroke: 0;
   clip-path: circle(0% at var(--x) var(--y));
   transition: all 0.2s ease-out;
 }
@@ -28,39 +28,33 @@
 
 .subheading {
   font-size: var(--paragraph-font-size);
-  color: #000;
+  color: var(--subheading-text-color);
   margin-bottom: 20px;
   font-weight: normal;
 }
 
-.course-cards-section {
-  padding: 0.5rem;
-}
 .course-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); 
+  gap: 10px;
   justify-content: center;
-  gap: 20px;
-  overflow-x: auto;
-  padding: 1rem;
-  scroll-behavior: smooth;
+  width: 100%;
 }
+
 .course-card {
   background: white;
   padding: 15px;
   border-radius: 8px;
-  border: 2px solid #999;
-  width: 300px;
+  border: 1px solid #000;
   overflow: hidden;
   text-align: left;
   transition: transform 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.course-card:hover {
-  transform: scale(1.05);
-  cursor: pointer;
 }
 
 .course-image {
@@ -73,27 +67,30 @@
 .course-details {
   flex-grow: 1;
 }
-.course-title {
-  color: rgb(51, 51, 51);
+
+.main-course-title {
   font-size: var(--paragraph-font-size) !important;
   margin-top: 5px;
 }
+
 .instructor {
+  margin-top: 5px;
   font-size: 0.9rem;
   color: rgb(119, 119, 119);
 }
+
 .rating {
   font-size: 0.9rem;
   color: rgb(255, 152, 0);
   margin: 5px 0px;
 }
+
 .course-footer {
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-top: auto;
-  padding: 10px 0;
 }
+
 .price {
   font-size: 1.1rem;
   font-weight: 700;
@@ -113,27 +110,139 @@
   margin-left: 10px;
 }
 
-.course-to-cart {
-  color: blue;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.view-details,
+.course-to-cart,
+.add-to-wishlist {
   border-radius: 8px;
   padding: 10px 15px;
   margin-top: 10px;
   cursor: pointer;
   display: flex;
-  border: 1px solid blue;
   align-items: center;
-  gap: 8px;
-  transition: background 0.3s;
-  width: 100%;
-  text-align: center;
   justify-content: center;
+  transition: background 0.3s, transform 0.3s, color 0.3s;
+  width: 80%;
+  text-align: center;
+  position: relative;
 }
 
-.cart-icon {
-  color: rgb(0, 0, 145);
+/* View Details Button */
+.view-details {
+  border: 1px solid blue;
+  color: blue;
+  background: white;
+}
 
-  font-size: 1.2rem;
+.view-details:hover {
+  background: blue;
+  color: white;
+}
+
+.view-details:hover .info-icon {
+  color: white !important;
+  transform: scale(1.1);
+}
+
+/* Add to Cart Button */
+.course-to-cart {
+  border: 1px solid green;
+  color: green;
+  background: white;
+}
+
+.course-to-cart:hover {
+  background: green;
+  color: white;
+}
+
+.course-to-cart:hover .cart-icon {
+  color: white !important;
+  transform: scale(1.1);
+}
+
+/* Add to Wishlist Button */
+.add-to-wishlist {
+  border: 1px solid red;
+  color: red;
+  background: white;
+}
+
+.add-to-wishlist:hover {
+  background: red;
+  color: white;
+}
+
+.add-to-wishlist:hover .wishlist-icon {
+  color: white !important;
+  transform: scale(1.1);
+}
+
+/* Icon Hover Animation */
+.view-details:hover .info-icon,
+.course-to-cart:hover .cart-icon,
+.add-to-wishlist:hover .wishlist-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Text Effect */
+.view-details::after,
+.course-to-cart::after,
+.add-to-wishlist::after {
+  content: attr(data-text); /* Fetch the button-specific text */
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px 8px;
+  font-size: 12px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.view-details:hover::after,
+.course-to-cart:hover::after,
+.add-to-wishlist:hover::after {
+  opacity: 1;
+}
+
+/* Assign the correct hover text for each button */
+.view-details[data-text="View Details"]::after {
+  content: "View Details";
+}
+
+.course-to-cart[data-text="Add to Cart"]::after {
+  content: "Add to Cart";
+}
+
+.add-to-wishlist[data-text="Wishlist"]::after {
+  content: "Wishlist";
+}
+
+
+@media (max-width: 1024px) {
+  .course-list {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    );
+  }
+}
+
+@media (max-width: 768px) {
+  .course-list {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(100%, 1fr)
+    );
+  }
 }

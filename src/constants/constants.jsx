@@ -31,7 +31,7 @@ export const courses = [
     instructor: "Sandeep Pinto, RShreya Ghoshal, Dr. Sunita George",
     rating: 4.4,
     reviews: "9,070",
-    price: "10000",
+    price: 10000,
     oldPrice: "₹13,499",
     image:
       "https://birlalearnleap.com/media/cache/lg/26d796cb7beb9d6a953afc096d5501a689813933.jpg",
@@ -43,7 +43,7 @@ export const courses = [
     instructor: "Priya Gopal, Dr. Sunita George, Sandeep Pinto",
     rating: 4.5,
     reviews: "153",
-    price: "35000",
+    price: 35000,
     oldPrice: "₹40,999",
     image:
       "https://birlalearnleap.com/media/cache/lg/449ebc4f2f7e15c2b1f06b0843bb23586612a9ee.jpg",
@@ -55,7 +55,7 @@ export const courses = [
     instructor: "Priya Gopal, Dr. Sunita George",
     rating: 4.4,
     reviews: "128",
-    price: "10000",
+    price: 10000,
     oldPrice: "₹13,499",
     image:
       "https://birlalearnleap.com/media/cache/lg/55fca700a276414de12f141b89a54be87de8c6d9.jpg",
@@ -84,5 +84,61 @@ export const courses = [
     image:
       "https://birlalearnleap.com/media/cache/lg/af5102bc12187f2ef1056a01e79f85912785040c.jpg",
     route: "/burlington-english",
+  },
+];
+
+export function FormatIndianNumber(number) {
+  return number.toLocaleString("en-IN");
+}
+
+export const modules = [
+  {
+    title: "Module 1: Introduction",
+    details:
+      "Learn about the basics of Generative AI, its history, and applications.",
+  },
+  {
+    title: "Module 2: Understanding LLMs",
+    details:
+      "Explore large language models, their working, and real-world applications.",
+  },
+  {
+    title: "Module 3: Prompt Engineering",
+    details: "Learn the art of crafting effective prompts for AI systems.",
+  },
+  {
+    title: "Module 4: Hands-on AI Projects",
+    details:
+      "Work on real-world Generative AI projects for practical experience.",
+  },
+  {
+    title: "Module 5: Hands-on AI Projects",
+    details:
+      "Work on real-world Generative AI projects for practical experience.",
+  },
+  {
+    title: "Module 6: Hands-on AI Projects",
+    details:
+      "Work on real-world Generative AI projects for practical experience.",
+  },
+  {
+    title: "Module 7: Hands-on AI Projects",
+    details:
+      "Work on real-world Generative AI projects for practical experience.",
+  },
+  {
+    title: "Module 8: Hands-on AI Projects",
+    details:
+      "Work on real-world Generative AI projects for practical experience.",
+  },
+  {
+    title: "Module 9: Hands-on AI Projects",
+    details:
+      "Work on real-world Generative AI projects for practical experience.",
+  },
+  {
+    title: "Module 10: Hands-on AI Projects",
+    details:
+      "Work on real-world Generative AI projects for practical experience.",
   },
 ];

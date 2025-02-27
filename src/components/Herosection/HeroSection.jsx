@@ -10,7 +10,7 @@ export const HeroSection = () => {
       <div className="herosection-container">
         <div className="herosection-text-content">
           <h1>Bridging Knowledge,</h1>
-          <h1>Building Careers</h1>
+          <h1>Building <span className="color-effect">Careers</span></h1>
           <p>
             Start, switch, or advance your career with our courses,
             Professional Certificates, and degrees from world-class universities

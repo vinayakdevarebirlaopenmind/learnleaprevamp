@@ -1,0 +1,59 @@
+/* Container Styling */
+
+/* Heading Styling */
+.testimonial-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.testimonial-subheading {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Card Styling */
+.testimonial-card {
+  height: 100%;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid rgb(165, 164, 164);
+  margin-top: 10px;
+}
+
+/* Avatar and Header */
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  margin-right: 12px;
+}
+
+/* Feedback Text */
+.testimonial-feedback {
+  margin-bottom: 10px;
+}
+
+.show-more-testimonials {
+  margin-top: 20px;
+  background-color: #3d19cc;
+  color: #fff;
+  border: 1px solid #3d19cc;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.show-more-testimonials:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #3d19cc;
+}

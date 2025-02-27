@@ -3,9 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
 import "./CourseSection.css";
-import { courses } from "../../constants/constants";
+import { courses, FormatIndianNumber } from "../../constants/constants";
 import { addToCart } from "../../store/cartSlice";
 import SuccessAlert from "../Alerts/SuccesAlert"; // Import the SuccessAlert component
+import InfoIcon from "@mui/icons-material/Info";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { Button, Tooltip } from "@mui/material";
+// import CourseCard from "./CourseCard";
 
 export default function CourseSection() {
   const navigate = useNavigate();
@@ -21,8 +25,13 @@ export default function CourseSection() {
   const handleAddToCart = (course) => {
     dispatch(addToCart(course));
 
-    // Show success alert with dynamic message
     setSuccessMessage(`${course.title} added to cart successfully!`);
+    setShowSuccess(true);
+  };
+
+  const handleAddToWishlist = (course) => {
+    // Here, dispatch the wishlist action when implemented
+    setSuccessMessage(`${course.title} added to wishlist!`);
     setShowSuccess(true);
   };
 
@@ -52,7 +61,7 @@ export default function CourseSection() {
                   onClick={() => handleCourseClick(course.route)}
                 />
                 <div className="course-details">
-                  <p className="course-title">{course.title}</p>
+                  <p className="main-course-title">{course.title}</p>
                   <p className="instructor">{course.instructor}</p>
                   <p className="rating">
                     ⭐⭐⭐⭐ {course.rating} ({course.reviews} reviews)
@@ -60,20 +69,61 @@ export default function CourseSection() {
                 </div>
                 <div className="course-footer">
                   <p className="price">
-                    <span className="current-price">{course.price}*</span>
-                    <span className="old-price">{course.oldPrice}*</span>
+                    <span className="current-price">
+                      {FormatIndianNumber(course.price)}*
+                    </span>
+                    <span className="old-price">
+                      {FormatIndianNumber(course.oldPrice)}*
+                    </span>
                   </p>
-                  <button
-                    className="course-to-cart"
-                    onClick={() => handleAddToCart(course)}
+                </div>
+                <div className="footer-buttons">
+                  <Tooltip title="View Details" placement="top" followCursor>
+                    <button
+                      className="view-details"
+                      onClick={() => handleCourseClick(course.route)}
+                    >
+                      <InfoIcon className="info-icon" />
+                    </button>
+                  </Tooltip>
+
+                  {/* Add to Cart Button */}
+                  <Tooltip
+                    title="Add to Cart"
+                    placement="top"
+                    followCursor
+                    sx={{
+                      fontSize: "1.2rem", // Increase text size
+                      "& .MuiTooltip-tooltip": {
+                        fontSize: "1.2rem", // Make tooltip text larger
+                        padding: "10px 15px", // Increase padding
+                        backgroundColor: "black", // Custom color if needed
+                      },
+                    }}
                   >
-                    <FaShoppingCart className="cart-icon" /> Add to Cart
-                  </button>
+                    <button
+                      className="course-to-cart"
+                      onClick={() => handleAddToCart(course)}
+                    >
+                      <FaShoppingCart className="cart-icon" />
+                    </button>
+                  </Tooltip>
+
+                  {/* Add to Wishlist Button */}
+                  <Tooltip title="Wishlist" placement="top" followCursor>
+                    <button
+                      className="add-to-wishlist"
+                      onClick={() => handleAddToWishlist(course)}
+                    >
+                      <FavoriteIcon className="wishlist-icon" />
+                    </button>
+                  </Tooltip>
                 </div>
               </div>
             ))}
+            {/* <CourseCard /> */}
           </div>
-        </div>{" "}
+        </div>
       </div>
     </>
   );

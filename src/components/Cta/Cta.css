@@ -7,22 +7,12 @@
   padding-bottom: var(--padding-bottom);
 }
 
-.color-effect {
-  background: linear-gradient(
-    120deg,
-    var( --light-blue-color),
-    var(--border-color)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .subtitle {
   font-size: var(--paragraph-font-size);
   margin-top: 10px;
 }
 .primary-button {
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   background-color: var(--course-bg-color);
   color: var(--white-color);
   text-decoration: none;

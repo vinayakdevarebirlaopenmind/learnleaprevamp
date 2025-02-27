@@ -5,7 +5,8 @@
   gap: 8em;
   margin: var(--margin);
   padding-top: var(--padding-top);
-  padding-bottom: var(--padding-bottom);}
+  padding-bottom: var(--padding-bottom);
+}
 
 .herosection-text-content {
   max-width: 50%;
@@ -27,12 +28,19 @@
 }
 
 .join-btn {
-  background-color: blue;
+  background: var(--gradient-background);
   color: white;
   padding: 0.8rem 1.5rem;
   border-radius: 6px;
-  border: none;
+  border: none; /* Removed duplicate border property */
   cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; /* Added transition */
+}
+
+.join-btn:hover {
+  background: blue;
+  color: white;
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; /* Added transition */
 }
 
 .business-btn {
@@ -41,8 +49,11 @@
   padding: 0.8rem 1.5rem;
   border: 2px solid blue;
   border-radius: 6px;
-
   cursor: pointer;
+}
+.business-btn:hover {
+  color: white; 
+  background: blue;
 }
 
 .image-content img {
