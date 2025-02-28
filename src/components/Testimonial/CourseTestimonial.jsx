@@ -3,12 +3,9 @@ import {
   Box,
   Container,
   Grid,
-  Card,
-  CardContent,
-  Typography,
   Avatar,
   Rating,
-  Button,
+  Typography,
 } from "@mui/material";
 import "./CourseTestimonial.css"; // Import custom CSS
 
@@ -58,6 +55,24 @@ const testimonials = [
     date: "2024-01-02",
     rating: 4,
   },
+  {
+    id: 5,
+    name: "Sophia Martinez",
+    avatar: "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7",
+    feedback:
+      "Amazing customer support and an intuitive platform. A game-changer for our business.",
+    date: "2024-01-02",
+    rating: 4,
+  },
+  {
+    id: 5,
+    name: "Sophia Martinez",
+    avatar: "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7",
+    feedback:
+      "Amazing customer support and an intuitive platform. A game-changer for our business.",
+    date: "2024-01-02",
+    rating: 4,
+  },
 ];
 
 const CourseTestimonial = () => {
@@ -68,48 +83,40 @@ const CourseTestimonial = () => {
   };
 
   return (
-    <Container maxWidth="lg" className="testimonial-container">
-      <Typography align="start" variant="h6" fontWeight={"bold"}>
-        Student Testimonials
+    <div className="testimonial-container">
+      <h2 className="student-testimonial-heading">Student Testimonials</h2>
+      <Typography component="p" className="student-testimonial-subheading">
+        See what our student are saying about us
       </Typography>
-      <Typography className="testimonial-subheading" align="start">
-        See what our customers are saying about us
-      </Typography>
-
       <Grid container spacing={4} className="testimonial-grid">
         {testimonials.slice(0, visibleTestimonials).map((testimonial) => (
           <Grid item xs={12} sm={6} md={4} key={testimonial.id}>
-            <Card className="testimonial-card">
-              <CardContent>
-                <Box className="testimonial-header">
-                  <Avatar
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="testimonial-avatar"
-                  />
-                  <Box>
-                    <Typography variant="h6">{testimonial.name}</Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {new Date(testimonial.date).toLocaleDateString()}
-                    </Typography>
-                    <Rating value={testimonial.rating} readOnly size="small" />
-                  </Box>
-                </Box>
-                <Typography variant="body1" className="testimonial-feedback">
-                  {testimonial.feedback}
-                </Typography>
-              </CardContent>
-            </Card>
+            <div className="testimonial-card">
+              <div className="testimonial-header">
+                <Avatar
+                  src={testimonial.avatar}
+                  alt={testimonial.name}
+                  className="testimonial-avatar"
+                />
+                <div>
+                  <h3 className="testimonial-name">{testimonial.name}</h3>
+                  <p className="testimonial-date">
+                    {new Date(testimonial.date).toLocaleDateString()}
+                  </p>
+                  <Rating value={testimonial.rating} readOnly size="small" />
+                </div>
+              </div>
+              <p className="testimonial-feedback">{testimonial.feedback}</p>
+            </div>
           </Grid>
         ))}
       </Grid>
-
       <Box className="show-more-container">
         <button className="show-more-testimonials" onClick={handleShowMore}>
           {visibleTestimonials === 3 ? "Show More" : "Show Less"}
         </button>
       </Box>
-    </Container>
+    </div>
   );
 };
 

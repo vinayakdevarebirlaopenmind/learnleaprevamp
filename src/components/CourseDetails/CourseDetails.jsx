@@ -35,6 +35,11 @@ import { useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CourseTestimonial from "../Testimonial/CourseTestimonial";
 import { modules } from "../../constants/constants";
+import CourseCertificate from "./CourseCertificate";
+import CourseSection from "../courses/CourseSection";
+import TeamMembers from "./TeamMembers";
+import CourseList from "./MiniCourseCard";
+import ModernFooter from "../Footer/Footer";
 
 export const CourseDetails = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -145,17 +150,28 @@ export const CourseDetails = () => {
               </li>
               <li>Hands-on experience, creating a chatbot</li>
               <li>Roadmap for continuous learning</li>
+            </ul>{" "}
+            <ul>
+              <li>Detailed Understanding of Generative AI</li>
+              <li>Industry use cases and ideas that can be implemented</li>
+              <li>
+                Future trends and how to stay relevant in post-GenAI world
+              </li>
+              <li>
+                Key Concepts - LLM, Embeddings, Prompt Engineering, Fine Tuning
+              </li>
+              <li>Hands-on experience, creating a chatbot</li>
+              <li>Roadmap for continuous learning</li>
             </ul>
           </div>
         </div>
-
         <div className="course-features">
           <h2 className="course-learnings-h2">This course includes:</h2>
           <div className="course-feature-list">
             <ul>
               <li>
-                <VideoLibrary style={{ color: "blue" }} /> 3.5 hours on-demand
-                video
+                <VideoLibrary style={{ color: "blue" }} />
+                32 hours on-demand video
               </li>
               <li>
                 <Article style={{ color: "blue" }} /> 3 articles
@@ -176,7 +192,6 @@ export const CourseDetails = () => {
             </ul>
           </div>
         </div>
-
         <div className="course-features">
           <h2 className="course-learnings-h2">Course Modules</h2>
           {modules.map((module, index) => (
@@ -200,10 +215,26 @@ export const CourseDetails = () => {
             </Accordion>
           ))}
         </div>
+        <div className="program-testimonials">
+          <TeamMembers />
+        </div>
 
+        <div className="learnleap-certificate-section">
+          <CourseCertificate />
+          <h2 className="course-mobile-text">Earn a Recognized Certificate!</h2>
+          <p className="course-mobile-text-paragraph">
+            You will receive the certificate after successfully completing the
+            course.
+          </p>
+        </div>
         <div className="program-testimonials">
           <CourseTestimonial />
         </div>
+        <div className="program-testimonials">
+          <CourseList />
+        
+        </div>
+        {/* <ModernFooter/> */}
       </div>
     </div>
   );

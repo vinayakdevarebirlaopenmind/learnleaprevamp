@@ -9,11 +9,15 @@ export function CartPage() {
   const navigate = useNavigate();
 
   // Calculate total price
-  const totalPrice = cartItems.reduce(
-    (total, item) =>
-      total + parseInt(item.price.replace("₹", "")) * item.quantity,
-    0
-  );
+  const totalPrice = cartItems.reduce((total, item) => {
+    const price =
+      typeof item.price === "string"
+        ? parseInt(item.price.replace("₹", ""))
+        : item.price;
+    return total + price * item.quantity;
+  }, 0);
+
+  console.log(cartItems);
 
   return (
     <div className="cart-container">
@@ -26,13 +30,15 @@ export function CartPage() {
           <div className="cart-items">
             {cartItems.map((item) => (
               <div key={item.id} className="cart-item">
-                <img src={item.image} alt={item.title} className="cart-item-img" />
-                
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="cart-item-img"
+                />
+
                 <div className="cart-item-info">
                   <p className="cart-item-title">{item.title}</p>
-                  <p className="cart-item-price">
-                    {item.price} 
-                  </p>
+                  <p className="cart-item-price">{item.price}</p>
                 </div>
 
                 <button
@@ -48,10 +54,16 @@ export function CartPage() {
           <h3 className="cart-total">Total: ₹{totalPrice}</h3>
 
           <div className="cart-buttons">
-            <button className="clear-cart" onClick={() => dispatch(clearCart())}>
+            <button
+              className="clear-cart"
+              onClick={() => dispatch(clearCart())}
+            >
               Clear Cart
             </button>
-            <button className="checkout-btn" onClick={() => navigate("/checkout")}>
+            <button
+              className="checkout-btn"
+              onClick={() => navigate("/checkout")}
+            >
               Proceed to Checkout
             </button>
           </div>

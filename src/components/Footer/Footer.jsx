@@ -1,179 +1,159 @@
 import "./Footer.css";
 import { FcAssistant } from "react-icons/fc";
 import Learnleaplogo from "../../assets/image/LearnLeap Final Logo.png";
-function Footer() {
-  return (
-    <>
-      <div>
-        <footer className="footer-section">
-          <div className="container">
-            <div className="footer-cta pt-5 pb-5">
-              <div className="footer-grid">
-                <div className="col-xl-4 col-md-4 mb-30">
-                  <div className="single-cta">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <div className="cta-text">
-                      <h4>Find us</h4>
-                      <span>1010 Avenue, sw 54321, chandigarh</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-4 col-md-4 mb-30">
-                  <div className="single-cta">
-                    <FcAssistant />
-                    <div className="cta-text">
-                      <h4>Call us</h4>
-                      <span>9876543210 0</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-4 col-md-4 mb-30">
-                  <div className="single-cta">
-                    <i className="far fa-envelope-open"></i>
-                    <div className="cta-text">
-                      <h4>Mail us</h4>
-                      <span>mail@info.com</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="footer-content pt-5 pb-5">
-              <div className="footer-grid">
-                <div className="col-xl-4 col-lg-4 mb-50">
-                  <div className="footer-widget">
-                    <div className="footer-logo">
-                      <a href="index.html">
-                        <img
-                          src={Learnleaplogo}
-                          className="img-fluid"
-                          alt="logo"
-                        />
-                      </a>
-                    </div>
-                    <div className="footer-text">
-                      <p>
-                        Lorem ipsum dolor sit amet, consec tetur adipisicing
-                        elit, sed do eiusmod tempor incididuntut consec tetur
-                        adipisicing elit,Lorem ipsum dolor sit amet.
-                      </p>
-                    </div>
-                    <div className="footer-social-icon">
-                      <span>Follow us</span>
-                      <a href="#">
-                        <i className="fab fa-facebook-f facebook-bg"></i>
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-twitter twitter-bg"></i>
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-google-plus-g google-bg"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-md-6 mb-30">
-                  <div className="footer-widget">
-                    <div className="footer-widget-heading">
-                      <h3>Useful Links</h3>
-                    </div>
-                    <ul>
-                      <li>
-                        <a href="#">Home</a>
-                      </li>
-                      <li>
-                        <a href="#">about</a>
-                      </li>
-                      <li>
-                        <a href="#">services</a>
-                      </li>
-                      <li>
-                        <a href="#">portfolio</a>
-                      </li>
-                      <li>
-                        <a href="#">Contact</a>
-                      </li>
-                      <li>
-                        <a href="#">About us</a>
-                      </li>
-                      <li>
-                        <a href="#">Our Services</a>
-                      </li>
-                      <li>
-                        <a href="#">Expert Team</a>
-                      </li>
-                      <li>
-                        <a href="#">Contact us</a>
-                      </li>
-                      <li>
-                        <a href="#">Latest News</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="col-xl-4 col-lg-4 col-md-6 mb-50">
-                  <div className="footer-widget">
-                    <div className="footer-widget-heading">
-                      <h3>Subscribe</h3>
-                    </div>
-                    <div className="footer-text mb-25">
-                      <p>
-                        Don’t miss to subscribe to our new feeds, kindly fill
-                        the form below.
-                      </p>
-                    </div>
-                    <div className="subscribe-form">
-                      <form action="#">
-                        <input type="text" placeholder="Email Address" />
-                        <button>
-                          <i className="fab fa-telegram-plane"></i>
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="copyright-area">
-            <div className="container">
-              <div className="footer-grid">
-                <div className="col-xl-6 col-lg-6 text-center text-lg-left">
-                  <div className="copyright-text">
-                    <p>
-                      Copyright &copy; 2018, All Right Reserved{" "}
-                      <a href="https://codepen.io/anupkumar92/">Anup</a>
-                    </p>
-                  </div>
-                </div>
-                <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-                  <div className="footer-menu">
-                    <ul>
-                      <li>
-                        <a href="#">Home</a>
-                      </li>
-                      <li>
-                        <a href="#">Terms</a>
-                      </li>
-                      <li>
-                        <a href="#">Privacy</a>
-                      </li>
-                      <li>
-                        <a href="#">Policy</a>
-                      </li>
-                      <li>
-                        <a href="#">Contact</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </>
-  );
-}
+import React from "react";
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  IconButton,
+  Link,
+} from "@mui/material";
+import { styled } from "@mui/system";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaInstagram,
+  FaArrowUp,
+} from "react-icons/fa";
 
-export default Footer;
+const FooterWrapper = styled(Box)(({ theme }) => ({
+  background: "linear-gradient(to left top, #1a237e, #3949ab)",
+  color: "#ffffff",
+  padding: "4rem 0 2rem 0",
+  position: "relative",
+}));
+
+const LogoWrapper = styled(Box)({
+  marginBottom: "2rem",
+  "& img": {
+    height: "80px",
+    transition: "transform 0.3s ease",
+    cursor: "pointer",
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
+  },
+});
+
+const LinkColumn = styled(Box)({
+  "& .MuiTypography-root": {
+    marginBottom: "0.5rem",
+    cursor: "pointer",
+    transition: "color 0.3s ease",
+    "&:hover": {
+      color: "#90caf9",
+    },
+  },
+});
+
+const SocialIcon = styled(IconButton)({
+  color: "#ffffff",
+  margin: "0 8px",
+  transition: "transform 0.3s ease, color 0.3s ease",
+  "&:hover": {
+    transform: "translateY(-3px)",
+    color: "#90caf9",
+  },
+});
+
+const ScrollTopButton = styled(IconButton)({
+  position: "absolute",
+  right: "2rem",
+  top: "-1.5rem",
+  backgroundColor: "#ffffff",
+  "&:hover": {
+    backgroundColor: "#e3f2fd",
+  },
+});
+
+const ModernFooter = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const navigationLinks = {
+    Company: ["About Us", "Careers", "Press", "Blog"],
+    Products: ["Features", "Pricing", "Solutions", "Enterprise"],
+    Support: ["Help Center", "Documentation", "API Status", "Contact"],
+    Resources: ["Partners", "Community", "Developers", "Legal"],
+  };
+
+  return (
+    <FooterWrapper>
+      <Container maxWidth="lg">
+        <ScrollTopButton onClick={scrollToTop} aria-label="Scroll to top">
+          <FaArrowUp />
+        </ScrollTopButton>
+
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={3}>
+            <LogoWrapper>
+              <img
+                src={Learnleaplogo}
+                alt="Company Logo"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = { Learnleaplogo };
+                }}
+              />
+            </LogoWrapper>
+            <Box sx={{ mt: 2 }}>
+              <Typography variant="body2">
+                Creating innovative solutions for tomorrow's challenges.
+              </Typography>
+            </Box>
+          </Grid>
+
+          {Object.entries(navigationLinks).map(([category, links]) => (
+            <Grid item xs={6} sm={3} md={2} key={category}>
+              <LinkColumn>
+                <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                  {category}
+                </Typography>
+                {links.map((link) => (
+                  <Typography variant="body2" key={link}>
+                    <Link href="#" underline="none" color="inherit">
+                      {link}
+                    </Link>
+                  </Typography>
+                ))}
+              </LinkColumn>
+            </Grid>
+          ))}
+
+          <Grid item xs={12}>
+            <Box sx={{ textAlign: "center", mt: 4 }}>
+              <SocialIcon aria-label="Facebook" component="a" href="#">
+                <FaFacebook size={24} />
+              </SocialIcon>
+              <SocialIcon aria-label="Twitter" component="a" href="#">
+                <FaTwitter size={24} />
+              </SocialIcon>
+              <SocialIcon aria-label="LinkedIn" component="a" href="#">
+                <FaLinkedin size={24} />
+              </SocialIcon>
+              <SocialIcon aria-label="Instagram" component="a" href="#">
+                <FaInstagram size={24} />
+              </SocialIcon>
+            </Box>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Typography
+              variant="body2"
+              align="center"
+              sx={{ mt: 2, opacity: 0.7 }}
+            >
+              © {new Date().getFullYear()} Company Name. All rights reserved.
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
+    </FooterWrapper>
+  );
+};
+
+export default ModernFooter;

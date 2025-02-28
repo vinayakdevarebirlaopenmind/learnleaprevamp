@@ -1,4 +1,13 @@
 :root {
+  --color-primary-purple: hsl(263, 55%, 52%);
+  --color-primary-light-purple: hsl(263, 80%, 80%);
+
+  --color-primary-light-gray-500: hsl(217, 19%, 35%);
+  --color-primary-blue: hsl(219, 29%, 14%);
+  --color-primary-white: hsl(0, 0%, 100%);
+  --color-neutral-light-gray-300: hsl(0, 0%, 81%);
+  --color-neutral-light-gray-200: hsl(210, 46%, 95%);
+  --font-size-default: 16px;
   /*  typography scaling */
   --h1-font-size: clamp(2rem, 5vw, 4rem);
   --h2-font-size: clamp(1.75rem, 4vw, 3rem);
@@ -50,7 +59,8 @@
 
   --hover-gradient-background: linear-gradient(
     120deg,
-    var(--border-color) ,var(--light-blue-color)
+    var(--border-color),
+    var(--light-blue-color)
   );
 
   /* button border radius  */

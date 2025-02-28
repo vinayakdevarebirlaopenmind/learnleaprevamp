@@ -5,6 +5,7 @@ import { HeroSection } from "../Herosection/HeroSection";
 import Footer from "../Footer/Footer";
 import PartnersCarousel from "../Partners/Partners";
 import Cta from "../Cta/Cta";
+import TestimonialList from "../Testimonial/TestimonialList";
 
 const Home = () => {
   return (
@@ -13,8 +14,9 @@ const Home = () => {
       <HeroSection />
       <PartnersCarousel />
       <CourseSection />
+      <TestimonialList/>
       <Cta />
-      {/* <Footer/> */}
+      <Footer/>
     </>
   );
 };

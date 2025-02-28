@@ -59,7 +59,9 @@ const CourseCard = () => {
         <p className="course-author">by {courseData.author}</p>
 
         <div className="price-container">
-          <span className="current-price">${courseData.currentPrice}</span>
+          <span className="current-price">
+            ${FormatIndianNumber(courseData.currentPrice)}
+          </span>
           <span className="old-price">${courseData.oldPrice}</span>
           <span className="discount">{courseData.discount}% OFF</span>
         </div>
