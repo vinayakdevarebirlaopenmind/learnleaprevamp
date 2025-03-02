@@ -8,14 +8,12 @@ function Cta() {
           Your <span className="color-effect">Journey</span> Shouldn't End Here.
         </h1>
         <p className="subtitle">
-          Follow Us on social media to stay tuned on more projects.
+        Interested in becoming an instructor? Click below to apply now!
         </p>
         <a
-          href="https://twitter.com/juxtopposed"
-          target="_blank"
           className="primary-button"
         >
-          Stay Tuned
+          Apply here 
         </a>
       </div>
     </div>

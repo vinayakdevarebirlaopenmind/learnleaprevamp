@@ -7,8 +7,8 @@
 }
 .login {
   background: white;
-  color: blue;
-  border: 2px solid blue;
+  color:  var(--color-primary-light-cyan);
+  border: 2px solid  var(--color-primary-light-cyan);
   padding: 8px 20px;
   border-radius: 8px;
   cursor: pointer;
@@ -16,6 +16,6 @@
 }
 
 .login:hover {
-  background: blue;
+  background:  var(--color-primary-light-cyan);
   color: white;
 }

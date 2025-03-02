@@ -12,11 +12,11 @@
   margin-top: 10px;
 }
 .primary-button {
-  padding: 0.5em 1em;
-  background-color: var(--course-bg-color);
+  padding: 8px 20px;
+  background-color: var(--color-primary-light-cyan);
   color: var(--white-color);
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: var(--button-border-radius);
   transition: transform ease 0.2s, box-shadow ease 0.2s;
   display: inline-block;
   font-size: var(--body-font-size);
@@ -25,8 +25,9 @@
 }
 
 .primary-button:hover {
+  cursor: pointer;
   transform: translate(0, -3px);
-  box-shadow: 0 20px 80px -10px var(--course-bg-color);
+  box-shadow: 0 20px 80px -10px var(--color-primary-light-cyan);
 }
 /* 
 .color-effect {

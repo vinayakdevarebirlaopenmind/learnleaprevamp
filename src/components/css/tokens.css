@@ -9,7 +9,8 @@
     var(--logo-stop-color)
   );
   --color-primary-purple: hsl(263, 55%, 52%);
-  --color-primary-light-purple: hsl(263, 80%, 80%);
+  /* --color-primary-light-purple: hsl(263, 80%, 80%); */
+  --color-primary-light-cyan: #1d8cdc;
 
   --color-primary-light-gray-500: hsl(217, 19%, 35%);
   --color-primary-blue: hsl(219, 29%, 14%);
@@ -48,15 +49,19 @@
   /* background color */
   --course-bg-color: #6039fc;
   --light-blue-color: #ab96ff;
-  --border-color: blue;
+  /* --border-color: blue; */
+  --border-color: #0369a1;
   --badge-color: rgb(250, 250, 116);
 
   /* color */
-  --black-color: #0000;
+  --black-color: #000;
   --white-color: #fff;
   --primbuttn: #4685ff;
   --accent: #ffb084;
-  --blue-text-color: blue;
+  --red-color:red;
+  --green-color:#00aa00;
+  /* --blue-text-color: blue; */
+  --blue-text-color: #0369a1;
   --subheading-text-color: #2e2e2ed0;
 
   /* Background gradient color */

@@ -113,7 +113,7 @@ export const CourseDetails = () => {
             </div>
           </div>
           <div className="course-price">
-            <h1 className="current-price">₹10,000</h1>
+            <h1 className="current-price-details">₹10,000</h1>
             <span className="original-price">₹13,499</span>
             <span className="discount">87% off</span>
           </div>

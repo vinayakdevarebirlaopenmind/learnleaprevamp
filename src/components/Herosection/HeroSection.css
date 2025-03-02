@@ -1,3 +1,10 @@
+/* 
+.background-image-hero-section{
+  background-image: url('../../assets/image/website-pattern-2.png'); 
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+} */
 .herosection-container {
   display: flex;
   justify-content: space-between;
@@ -28,32 +35,36 @@
 }
 
 .join-btn {
-  background: var(--gradient-background);
+  background: var(--color-primary-light-cyan);
   color: white;
   padding: 0.8rem 1.5rem;
   border-radius: 6px;
-  border: none; /* Removed duplicate border property */
+  border: 2px solid var(--color-primary-light-cyan);
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; /* Added transition */
 }
 
 .join-btn:hover {
-  background: blue;
-  color: white;
+  background: none;
+  color: var(--color-primary-light-cyan);
   transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; /* Added transition */
 }
 
 .business-btn {
   background-color: transparent;
-  color: blue;
+  color: var(--color-primary-light-cyan);
   padding: 0.8rem 1.5rem;
-  border: 2px solid blue;
+  border: 2px solid  var(--color-primary-light-cyan);
   border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; /* Added transition */
+
 }
 .business-btn:hover {
   color: white; 
-  background: blue;
+  background:  var(--color-primary-light-cyan);
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; /* Added transition */
+
 }
 
 .image-content img {

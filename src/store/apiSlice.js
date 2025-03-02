@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    // baseUrl: "http://localhost:8080", // ✅ Set base URL globally
-    baseUrl: "http://147.79.70.92:8080", // ✅ Set base URL globally
+    baseUrl: "http://localhost:8080", 
+    // baseUrl: "http://birlaedutech.in:8080",  //live url
     credentials: "include",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("accessToken");
@@ -17,7 +17,7 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     signup: builder.mutation({
       query: (userData) => ({
-        url: "/signup", // ✅ No need for full URL, `baseUrl` is already set
+        url: "/signup",
         method: "POST",
         body: userData,
       }),
@@ -38,6 +38,5 @@ export const apiSlice = createApi({
   }),
 });
 
-// ✅ Fix incorrect export name
 export const { useSignupMutation, useGoogleAuthMutation, useLoginMutation } =
   apiSlice;

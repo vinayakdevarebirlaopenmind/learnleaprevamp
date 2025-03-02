@@ -1,0 +1,24 @@
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .faq-accordion {
+    margin-bottom: 1rem;
+  }
+  
+  .faq-accordion .MuiAccordionSummary-root {
+    /* background-color: #f0f0f0; */
+    border-radius: 8px;
+  }
+  
+  .faq-accordion .MuiAccordionSummary-root:hover {
+    /* background-color: #e0e0e0; */
+  }
+  
+  .faq-accordion .MuiAccordionDetails-root {
+    /* background-color: #f9f9f9; */
+    border-radius: 8px;
+  }
+  

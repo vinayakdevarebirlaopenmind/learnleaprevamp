@@ -74,7 +74,7 @@
   transform: translateY(-50%);
   font-size: 14px;
   color: #666;
-  background: white;
+  background: var(--white-color);
   padding: 0 5px;
   transition: all 0.3s ease-in-out;
   pointer-events: none;
@@ -85,7 +85,7 @@
 .login-form input:not(:placeholder-shown) + label {
   top: 0;
   font-size: 15px;
-  color: #3d19cc;
+  color:  var(--color-primary-light-cyan);
 }
 
 /* .login-form input, */
@@ -94,9 +94,9 @@
   align-items: center;
   justify-content: center;
   gap: 8px; /* Space between icon and text */
-  background-color: #3d19cc;
-  color: #fff;
-  border: 1px solid #3d19cc;
+  background-color:  var(--color-primary-light-cyan);
+  color: var(--white-color);
+  border: 1px solid  var(--color-primary-light-cyan);
   padding: 12px;
   border-radius: 5px;
   font-size: 16px;
@@ -106,8 +106,8 @@
 
 .login-form button:hover {
   cursor: pointer;
-  background-color: #fff;
-  color: #3d19cc;
+  background-color: var(--white-color);
+  color:  var(--color-primary-light-cyan);
 }
 
 .login-terms,
@@ -117,7 +117,7 @@
 }
 
 .login-form a {
-  color: #3d19cc;
+  color:  var(--color-primary-light-cyan);
   text-decoration: none;
 }
 

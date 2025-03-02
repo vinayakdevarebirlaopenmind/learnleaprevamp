@@ -11,7 +11,6 @@ import { EnquiryModal } from "./Modal/EnquiryModal";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/authSlice";
 import { menuItems, trendingSearches } from "../constants/constants";
-import { Tooltip } from "@mui/material";
 const Header = () => {
   const [showNotification, setShowNotification] = useState(true);
   const [isClosing, setIsClosing] = useState(false);
@@ -35,20 +34,17 @@ const Header = () => {
     navigate(path);
   };
   const handleLogout = () => {
-    dispatch(logout()); // Clear Redux state
-    localStorage.removeItem("accessToken"); // Remove token from storage
-    navigate("/login"); // Redirect to login
+    dispatch(logout()); 
+    localStorage.removeItem("accessToken"); 
+    navigate("/login"); 
   };
-  // Get user info from Redux state
   const { isAuthenticated, user } = useSelector((state) => state.auth);
-  // Add this state variable
   const [timeLeft, setTimeLeft] = useState({
     hours: 12,
     minutes: 24,
     seconds: 12,
   });
 
-  // Timer useEffect (no changes needed)
   useEffect(() => {
     if (showNotification && !isClosing) {
       const timer = setInterval(() => {
@@ -212,7 +208,7 @@ const Header = () => {
             </button>
 
             {isOpen && (
-              <div className="dropdown-menu">
+              <div className="dropdown-menu"   onMouseDown={(e) => e.preventDefault()} >
                 <h4>Links #</h4>
                 <ul>
                   {menuItems.map((item, index) => (

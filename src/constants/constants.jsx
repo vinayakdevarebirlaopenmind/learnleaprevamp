@@ -17,9 +17,8 @@ export const trendingSearches = [
 
 //links
 export const menuItems = [
-  // { id: 1, name: "About Learnleap", path: "/about" },
   { id: 2, name: "Events", path: "/events" },
-  { id: 3, name: "Enquire Now", path: "/enquire" },
+  { id: 3, name: "Enquire Now", path: "/enquireform" },
   { id: 4, name: "FAQs", path: "/faqs" },
 ];
 
@@ -201,3 +200,62 @@ export const testimonials = [
   },
 ];
 
+
+// faq section
+ export const faqData = [
+  {
+    question: "What services do you offer?",
+    answer:
+      "We offer a comprehensive suite of digital solutions including web development, mobile app development, cloud services, and digital transformation consulting.",
+  },
+  {
+    question: "How can I get started?",
+    answer:
+      "Getting started is easy! Simply click the contact button on this page, and our team will reach out to schedule a free consultation to discuss your needs.",
+  },
+  {
+    question: "What is your pricing model?",
+    answer:
+      "We offer flexible pricing models tailored to your specific needs. This includes project-based pricing, hourly rates, and retainer options.",
+  },
+  {
+    question: "What is your typical project timeline?",
+    answer:
+      "Project timelines vary based on scope and complexity. Typically, small projects take 4-6 weeks, while larger projects can span 3-6 months.",
+  },
+  {
+    question: "Do you provide ongoing support?",
+    answer:
+      "Yes, we offer comprehensive maintenance and support packages to ensure your solutions continue to perform optimally after launch.",
+  },
+  {
+    question: "What technologies do you work with?",
+    answer:
+      "We work with a wide range of modern technologies including React, Angular, Node.js, Python, AWS, and more.",
+  },
+  {
+    question: "What technologies do you work with?",
+    answer:
+      "We work with a wide range of modern technologies including React, Angular, Node.js, Python, AWS, and more.",
+  },
+  {
+    question: "What technologies do you work with?",
+    answer:
+      "We work with a wide range of modern technologies including React, Angular, Node.js, Python, AWS, and more.",
+  },
+  {
+    question: "What technologies do you work with?",
+    answer:
+      "We work with a wide range of modern technologies including React, Angular, Node.js, Python, AWS, and more.",
+  },
+  {
+    question: "What technologies do you work with?",
+    answer:
+      "We work with a wide range of modern technologies including React, Angular, Node.js, Python, AWS, and more.",
+  },
+  {
+    question: "What technologies do you work with?",
+    answer:
+      "We work with a wide range of modern technologies including React, Angular, Node.js, Python, AWS, and more.",
+  },
+];

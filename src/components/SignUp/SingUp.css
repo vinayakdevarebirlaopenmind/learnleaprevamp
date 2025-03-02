@@ -85,7 +85,7 @@
 .signup-form input:not(:placeholder-shown) + label {
   top: 0;
   font-size: 15px;
-  color: #3d19cc;
+  color:  var(--color-primary-light-cyan);
 }
 
 /* .signup-form input, */
@@ -94,7 +94,7 @@
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #3d19cc;
+  background-color:  var(--color-primary-light-cyan);
   cursor: pointer;
   color: white;
   font-size: 16px; */
@@ -102,7 +102,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px; /* Space between icon and text */
-  background-color: #3d19cc;
+  background-color:  var(--color-primary-light-cyan);
   color: white;
   border: none;
   padding: 12px;
@@ -110,13 +110,13 @@
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  border: 1px solid #3d19cc;
+  border: 1px solid  var(--color-primary-light-cyan);
 }
 
 .signup-form button:hover {
   background-color: #fff;
-  color: #3d19cc;
-  border: 1px solid #3d19cc;
+  color:  var(--color-primary-light-cyan);
+  border: 1px solid  var(--color-primary-light-cyan);
 }
 
 .signup-terms,
@@ -126,7 +126,7 @@
 }
 
 .signup-form a {
-  color: #3d19cc;
+  color:  var(--color-primary-light-cyan);
   text-decoration: none;
 }
 
@@ -177,15 +177,15 @@
 }
 
 .valid {
-  color: green;
+  color: var(--green-color);
   font-weight: bold;
 }
 
 .invalid {
-  color: red;
+  color:  var(--red-color);
 }
 .error-text {
-  color: red;
+  color:  var(--red-color);
 }
 
 /* 📱 Mobile View - Hide Image and Stack Form */

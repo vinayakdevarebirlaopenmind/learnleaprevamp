@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import PartnersCarousel from "../Partners/Partners";
 import Cta from "../Cta/Cta";
 import TestimonialList from "../Testimonial/TestimonialList";
+import FAQPage from "../FAQ/Faq";
 
 const Home = () => {
   return (
@@ -13,8 +14,8 @@ const Home = () => {
       <Header />
       <HeroSection />
       <PartnersCarousel />
-      <CourseSection />
       <TestimonialList/>
+      <FAQPage/>
       <Cta />
     </>
   );
