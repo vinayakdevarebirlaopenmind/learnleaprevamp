@@ -4,7 +4,7 @@ export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     // baseUrl: "http://localhost:8080", // ✅ Set base URL globally
-    baseUrl: "https://birlaedutech.in:8080", // ✅ Set base URL globally
+    baseUrl: "http://147.79.70.92:8080", // ✅ Set base URL globally
     credentials: "include",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("accessToken");
