@@ -1,0 +1,52 @@
+/* Responsive Image */
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+.course-mobile-text {
+  display: none;
+}
+.course-mobile-text-paragraph{
+  display: none;
+}
+/* Mobile View Adjustments */
+@media screen and (max-width: 600px) {
+  .section-container {
+    flex-direction: column;
+  }
+
+  .text-container {
+    order: 1;
+  }
+  .course-certificate-heading {
+    display: none;
+  }
+  .certificate-subheading {
+    display: none;
+  }
+  .course-mobile-text {
+    display: block;
+    font-size: 20px;
+    text-align: start;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .course-mobile-text-paragraph {
+    display: block;
+    font-size: 16px;
+    text-align: start;
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+  .image-container {
+    order: 2;
+    justify-content: start;
+    width: auto;
+  }
+
+  .responsive-image {
+    width: auto;
+    max-width: 350px; /* Prevents it from getting too large */
+  }
+}
