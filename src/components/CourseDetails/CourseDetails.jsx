@@ -40,7 +40,7 @@ import CourseSection from "../courses/CourseSection";
 import TeamMembers from "./TeamMembers";
 import CourseList from "./MiniCourseCard";
 import ModernFooter from "../Footer/Footer";
-
+import Groups3Icon from "@mui/icons-material/Groups3";
 export const CourseDetails = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -120,6 +120,10 @@ export const CourseDetails = () => {
           <div className="limited-offer">
             <AlarmIcon />
             <span>5 hours</span> left at this price!
+          </div>
+          <div className="limited-offer">
+            <Groups3Icon />
+            <span>Batch size</span>10
           </div>
           <div className="course-section-grp-button">
             <button className="cart-btn">Add to cart</button>
@@ -232,7 +236,6 @@ export const CourseDetails = () => {
         </div>
         <div className="program-testimonials">
           <CourseList />
-        
         </div>
         {/* <ModernFooter/> */}
       </div>

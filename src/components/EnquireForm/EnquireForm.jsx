@@ -40,10 +40,10 @@ const EnquireForm = () => {
       <Header />
       <div className="enquireform-container">
         <div className="enquireform-right">
-          <h2 className="common-heading">Enquire Form</h2>
+          {/* <h2 className="common-heading">Enquire Form</h2> */}
           <p className="common-title">
-            Get All Your{" "}
-            <span className="color-effect">Answers Just Fill The Form</span>
+           We wish to know{" "}
+            <span className="color-effect">more about you!</span>
           </p>
 
           <form className="enquireform" onSubmit={handleSubmit}>
@@ -153,10 +153,9 @@ const EnquireForm = () => {
           </form>
         </div>
         <div className="enquireform-left">
-
-        <h2 className="common-heading">Featured courses</h2>
+          {/* <h2 className="common-heading">Featured courses</h2> */}
           <p className="common-title">
-        Pick from the
+            Pick from the{" "}
             <span className="color-effect">best courses available</span>
           </p>
           <CourseList />

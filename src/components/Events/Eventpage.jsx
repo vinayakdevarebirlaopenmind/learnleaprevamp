@@ -83,11 +83,8 @@ const Eventpage = () => {
       <Header />
       <div className="learnleap-events-section">
 
-      <h2 className="common-heading">Course Events</h2>
-        <p className="common-title">
-          Our Courses with {""}
-          <span className="color-effect">Cutting-edge expertise unleashed</span>
-     </p>
+      <h2 className="common-heading">Learnleap <span className="color-effect">Events</span></h2>
+       
         <div className="learnleap-events-filters">
           <input
             type="text"

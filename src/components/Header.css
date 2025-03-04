@@ -1,6 +1,7 @@
 /* Notification Header */
 .header-notification {
-  background-color: var(--color-primary-light-cyan);
+  /* background-color: var(--color-primary-light-cyan); */
+  background: var(--gradient-background);
   padding: var(--container-padding-lg);
   display: flex;
   justify-content: center;

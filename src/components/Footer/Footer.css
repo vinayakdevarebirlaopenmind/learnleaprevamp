@@ -1,5 +1,6 @@
 .footer-wrapper {
-  background: linear-gradient(to left top, #005EA0, #0369a1);
+  /* background: linear-gradient(to left top, #005EA0, #0369a1); */
+  background: var(--color-primary-light-cyan);
   color: #ffffff;
   padding: 4rem 0 2rem 0;
   position: relative;

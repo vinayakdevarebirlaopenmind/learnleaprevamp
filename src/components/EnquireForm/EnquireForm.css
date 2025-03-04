@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: var(--margin);
+  gap: 10px;
   padding-top: var(--padding-top);
   padding-bottom: var(--padding-bottom);
 }
@@ -12,21 +13,18 @@
   justify-content: start;
   align-items: start;
   text-align: start;
-  
 }
-.heading-text{
+.heading-text {
   font-size: var(--h4-font-size);
   text-align: start;
 }
 .enquireform-left h1 {
   font-size: 2rem;
   color: var(--color-primary-light-cyan);
-  
 }
-.subheading-enquiry{
+.subheading-enquiry {
   margin-bottom: 10px;
 }
-
 
 .enquireform-image {
   margin-top: 20px;
@@ -62,15 +60,15 @@
   background-color: transparent;
   color: var(--color-primary-light-cyan);
   padding: 0.8rem 1.5rem;
-  border: 2px solid  var(--color-primary-light-cyan);
+  border: 2px solid var(--color-primary-light-cyan);
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; /* Added transition */
 }
 
-.enquireform-btn{
-  color: white; 
-  background:  var(--color-primary-light-cyan);
+.enquireform-btn {
+  color: white;
+  background: var(--color-primary-light-cyan);
   transition: background 0.3s ease, color 0.3s ease, border 0.3s ease; /* Added transition */
 }
 /* Mobile View */
@@ -78,8 +76,6 @@
   .enquireform-container {
     grid-template-columns: 1fr;
   }
-
-
 
   .enquireform-right {
     width: 90%;

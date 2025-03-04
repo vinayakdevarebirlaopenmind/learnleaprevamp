@@ -3,7 +3,7 @@ import "./HeroSection.css";
 import { useNavigate } from "react-router-dom";
 import Cursor from "./Cursor";
 import CourseSection from "../courses/CourseSection";
-import HeroImage from "../../assets/image/Herosectionimage.jpg";
+import HeroImage from "../../assets/image/Herosectionimage.png";
 export const HeroSection = () => {
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ export const HeroSection = () => {
                 className="join-btn"
                 onClick={() => navigate("/enquireform")}
               >
-                Join For Free
+              Enquiry 
               </button>
               <button className="business-btn" onClick={scrollToCourses}>
                 Browse Courses

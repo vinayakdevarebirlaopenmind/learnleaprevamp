@@ -289,7 +289,7 @@ const Header = () => {
               className={`joinnow-btn ${isActive ? "active" : ""}`}
               onClick={handleClickJoinNow}
             >
-              Join now
+              Ask me
             </button>
             {!isAuthenticated ? (
               <>

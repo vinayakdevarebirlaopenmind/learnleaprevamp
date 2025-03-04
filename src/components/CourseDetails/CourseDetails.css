@@ -1,5 +1,5 @@
 .course-container {
-  background: var(--gradient-background);
+  background: var(--color-primary-light-cyan);
   padding: 1% 7%;
   text-align: left;
 }
@@ -172,7 +172,7 @@
 }
 
 .cart-btn {
-  background: var(--gradient-background);
+  background: var(--color-primary-light-cyan);
   color: var(--white-color);
   border: none;
   padding: 10px 15px;
@@ -182,7 +182,7 @@
 }
 
 .cart-btn:hover {
-  background: var(--hover-gradient-background);
+  background: var(--logo-actual-color);
 }
 .wishlist-btn {
   /* width: 20%; */
