@@ -1,0 +1,57 @@
+/* Container for the entire section */
+.partners-section {
+  text-align: start;
+  margin: var(--margin);
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+}
+
+/* Heading styling */
+.partners-heading {
+  font-size: var(--h4-font-size); 
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.partners-section h2 span {
+  border-radius: 12px;
+  padding: 6px;
+  background: var(--gradient-background);
+  color: #fff;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.partners-section h2 span:hover {
+  /* background: #4949ff; */
+  transform: scale(1.05); /* Slight scaling for a smooth effect */
+}
+
+/* Container for partner logos */
+.partner-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* Styling for each partner logo */
+.partner-img {
+  width: 300px;
+  /* height: 300px; Adjust size as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure images fit within the container */
+.partner-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ensure the image fits without distortion */
+  transition: transform 0.3s ease-in-out;
+}
+
+.partner-img img:hover {
+  /* transform: scale(1.1); Adjust scale factor as needed */
+}
