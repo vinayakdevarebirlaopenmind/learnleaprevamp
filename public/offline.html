@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <title>No Internet</title>
+    <style>
+      /* Modal Overlay */
+      .modal-overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        /* background: rgba(0, 0, 0, 0.5); Semi-transparent background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+
+      .modal-container {
+        top: 50%;
+        left: 50%;
+        background: white;
+        padding: 20px;
+        width: 90%;
+        max-width: 400px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Modal Container */
+      .modal-content {
+        position: fixed;
+        /* top: 50%;
+  left: 50%; */
+        transform: translate(-50%, -50%);
+        background: #fff;
+        width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      /* Close Button */
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      /* Modal Heading */
+      h2 {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      /* Phone Input */
+      .phone-input {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px 0;
+      }
+
+      .phone-input input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 16px;
+      }
+
+      /* Call Information */
+      .call-info ul {
+        list-style: none;
+        padding: 0;
+        text-align: start;
+      }
+
+      .call-info li {
+        font-size: 14px;
+        margin-bottom: 5px;
+        text-align: start;
+      }
+
+      /* Call Button */
+      .call-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        background: #6a0dad;
+        color: white;
+        width: 100%;
+        padding: 12px;
+        border-radius: 5px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .call-btn:hover {
+        background: #580a9c;
+      }
+
+      /* Support Information */
+      .support-info {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
+      }
+
+      /* Contact Options */
+      .contact-options {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .contact-box {
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      /* Icons */
+      .icon {
+        font-size: 20px;
+      }
+
+      .india {
+        color: #ff9933;
+      }
+
+      .globe {
+        color: #0066cc;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Lool likes you are offline</h1>
+    </div>
+    <div class="modal-container">
+      <h2>Until then call us at +91 79777 68801</h2>
+      <p>Let us help you guide towards your career path.</p>
+
+      <div class="phone-input">
+        <span class="flag-icon">🇮🇳 +91</span>
+        <input type="text" placeholder="Phone number" />
+      </div>
+
+      <div class="call-info">
+        <ul>
+          <li>✅ Non-biased career guidance</li>
+          <li>✅ Counseling based on your skills and preference</li>
+          <li>✅ No repetitive calls, only as per convenience</li>
+        </ul>
+      </div>
+      <div class="support-info">
+        <div class="contact-options">
+          <div class="contact-box">
+            <strong>📞 +91 79777 68801</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
