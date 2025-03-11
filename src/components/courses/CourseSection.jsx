@@ -182,7 +182,6 @@ export default function CourseSection() {
                       />
                     </button>
                   </Tooltip>
-                  
                 </div>
               </div>
             ))}

@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import {
   clearCart,
   removeFromCart,
@@ -14,9 +15,11 @@ import { useState } from "react";
 import { Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
 import CartImage from "../../assets/image/trolley_page.jpg";
+
 export function CartPage() {
   const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log(cartItems);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user); // ✅ Fix: Get user details
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,10 +31,13 @@ export function CartPage() {
 
   // Calculate total price
   const subtotal = cartItems.reduce((total, item) => {
+    console.log(item.price);
+    console.log(item.id);
+
     const price =
       typeof item.price === "string"
-        ? parseInt(item.price.replace("₹", ""))
-        : item.price;
+        ? parseInt(item.price.replace("₹", "")) || 0
+        : item.price || 0; // ✅ Fix: Handle undefined price
     return total + price * item.quantity;
   }, 0);
 
@@ -67,9 +73,50 @@ export function CartPage() {
     showAlert(`Course removed successfully!`, "success");
   };
 
+  // Handle checkout
+  const handleCheckout = async () => {
+    if (!isAuthenticated || !user) {
+      showAlert("You are not logged in. Please login first!", "error");
+      setTimeout(() => navigate("/login"), 2000);
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:8080/api/pay", {
+        amount: finalTotal, // ✅ Fix: Use final total
+        firstname: user.name,
+        email: user.email,
+        phone: user.phone || user.mobile || "",
+        productinfo: "Selected Courses",
+      });
+
+      const { payuData, action } = response.data;
+
+      // Create Form & Auto-submit to PayU
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = action;
+
+      Object.keys(payuData).forEach((key) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = payuData[key];
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      form.submit();
+    } catch (error) {
+      console.error("Payment Error:", error);
+      showAlert("Payment failed. Try again later.", "error");
+    }
+  };
+
   return (
     <>
       <Header />
+
       {/* Snackbar Alert */}
       <Snackbar
         open={alert.open}
@@ -126,7 +173,7 @@ export function CartPage() {
                   <div className="cart-item-info">
                     <p className="cart-item-title">{item.title}</p>
                     <p className="cart-item-price">
-                      {FormatIndianNumber(item.price)}
+                      {FormatIndianNumber(item.price || 0)}
                     </p>
                   </div>
 
@@ -166,10 +213,10 @@ export function CartPage() {
                   Subtotal: <span>₹{FormatIndianNumber(subtotal)}</span>
                 </p>
                 <p>
-                  SGST (9%): <span>₹{FormatIndianNumber(sgst)}</span>
+                  SGST (9%) : <span>₹{FormatIndianNumber(sgst)}</span>
                 </p>
                 <p>
-                  CGST (9%): <span>₹{FormatIndianNumber(cgst)}</span>
+                  CGST (9%) : <span>₹{FormatIndianNumber(cgst)}</span>
                 </p>
                 <hr />
                 <h3>
@@ -186,10 +233,7 @@ export function CartPage() {
               >
                 Clear Cart
               </button>
-              <button
-                className="checkout-btn"
-                onClick={() => navigate("/checkout")}
-              >
+              <button className="checkout-btn" onClick={handleCheckout}>
                 Proceed to Checkout
               </button>
             </div>

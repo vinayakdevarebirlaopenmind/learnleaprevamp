@@ -1,7 +1,17 @@
-import { Avatar, Box, Divider, IconButton, Menu, MenuItem, Tooltip, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Divider,
+  IconButton,
+  Menu,
+  MenuItem,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../../store/authSlice";
 
 const ProfileDropdown = () => {
   const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
@@ -35,7 +45,10 @@ const ProfileDropdown = () => {
     { title: "Profile", route: "/profile" },
     { title: "My learning", route: "/learning" },
     { title: `My cart (${cartItems.length} course)`, route: "/cart" },
-    { title: `Wishlist (${wishlistItems.length} course)`, route: "/yourwishlist" },
+    {
+      title: `Wishlist (${wishlistItems.length} course)`,
+      route: "/yourwishlist",
+    },
     { title: "Purchase history", route: "/purchase-history" },
     { title: "Teach on Learnleap", route: "/teach" },
     "divider",
@@ -91,7 +104,9 @@ const ProfileDropdown = () => {
               },
             }}
           >
-            <Tooltip title="Profile">{user?.name}</Tooltip>
+            <Tooltip title="Profile">
+              <span>{user?.name}</span>
+            </Tooltip>
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {user?.email.length > 10

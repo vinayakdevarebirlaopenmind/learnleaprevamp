@@ -30,7 +30,7 @@ export const courses = [
   {
     id: 1,
     title: "Certificate Program for ECCEd",
-    instructor: "Sandeep Pinto, RShreya Ghoshal, Dr. Sunita George",
+    instructor: "Sandeep Pinto, R Shreya Ghoshal, Dr. Sunita George",
     rating: 4.4,
     reviews: "9,070",
     price: 10000,
@@ -266,13 +266,13 @@ export const profileDropdown = [
   {
     id: 1,
     title: "Profile",
-    icon: <AssignmentIndIcon/>,
+    icon: <AssignmentIndIcon />,
     route: "/profile",
   },
   {
     id: 2,
     title: "Logout",
-    icon: <LogoutIcon/>,
+    icon: <LogoutIcon />,
     route: "/logout",
   },
 ];
