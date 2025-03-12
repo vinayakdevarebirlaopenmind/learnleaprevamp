@@ -3,7 +3,7 @@ import authReducer from "./authSlice";
 import { apiSlice } from "./apiSlice";
 import cartReducer from "./cartSlice";
 import { enquiryApiSlice } from "./enquiryApiSlice";
-import wishlistReducer from "../components/slice/wishlistSlice"; 
+import wishlistReducer from "../components/slice/wishlistSlice";
 
 export const store = configureStore({
   reducer: {

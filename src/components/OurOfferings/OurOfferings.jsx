@@ -25,7 +25,7 @@ const offerings = [
   },
   {
     icon: <FaBook size={40} />,
-    title: "6 Courses",
+    title: "5 Courses",
     description: "Our programs are up-to-date with prevailing practices.",
   },
   {

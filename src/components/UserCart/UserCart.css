@@ -29,8 +29,11 @@
 .cart-item img {
   width: 80px;
   height: 80px;
+  -o-object-fit: cover;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 8px;
+  border: 1px solid var(--color-primary-light-cyan);
+  padding: 5px;
 }
 
 .cart-item-info {
@@ -124,9 +127,9 @@
 .cart-total-section {
   margin-top: 20px;
   padding: 15px;
-  border: 1px solid var(--color-primary-light-cyan);
+  /* border: 1px solid var(--color-primary-light-cyan); */
   border-radius: 10px;
-  background-color: #f9f9f9;
+  background-color: #d4e7f5;
   width: 100%;
   max-width: 500px;
   margin-left: auto;

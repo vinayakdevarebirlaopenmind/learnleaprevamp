@@ -31,8 +31,8 @@ export function CartPage() {
 
   // Calculate total price
   const subtotal = cartItems.reduce((total, item) => {
-    console.log(item.price);
-    console.log(item.id);
+    // console.log(item.price);
+    // console.log(item.id);
 
     const price =
       typeof item.price === "string"
@@ -82,13 +82,25 @@ export function CartPage() {
     }
 
     try {
-      const response = await axios.post("http://localhost:8080/api/pay", {
-        amount: finalTotal, // ✅ Fix: Use final total
-        firstname: user.name,
-        email: user.email,
-        phone: user.phone || user.mobile || "",
-        productinfo: "Selected Courses",
-      });
+      // Extract product info from cartItems
+      const productInfo = cartItems.map((item) => ({
+        id: item.id,
+        title: item.title,
+        quantity: item.quantity,
+        price: item.price, // ✅ Correct: Use item.price instead of finalTotal
+      }));
+
+      const response = await axios.post(
+        "https://birlaedutech.in/api/payments/pay",
+        {
+          amount: finalTotal,
+          firstname: user.name,
+          email: user.email,
+          phone: user.phone || user.mobile || "",
+          user_id: user.id, // ✅ Send user_id from frontend
+          productinfo: JSON.stringify(productInfo),
+        }
+      );
 
       const { payuData, action } = response.data;
 

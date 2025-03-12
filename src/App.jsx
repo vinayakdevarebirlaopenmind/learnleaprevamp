@@ -23,6 +23,8 @@ import FaqPage from "./components/FAQ/FaqPage";
 import Eventpage from "./components/Events/Eventpage";
 import EnquireForm from "./components/EnquireForm/EnquireForm";
 import WishlistPage from "./components/Wishlist/WishlistPage";
+import Failure from "./components/PaymentPage/Failure";
+import Success from "./components/PaymentPage/SuccessPage";
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -79,6 +81,8 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/yourwishlist" element={<WishlistPage />} />
           <Route path="/events" element={<Eventpage />} />
+          <Route path="/failure" element={<Failure />} />
+          <Route path="/success" element={<Success />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>
@@ -95,7 +99,7 @@ function PageWrapper({ setLoading }) {
 
   useEffect(() => {
     setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 1000); // Simulating load time
+    const timer = setTimeout(() => setLoading(false), 1500); // Simulating load time
     return () => clearTimeout(timer);
   }, [location]);
 

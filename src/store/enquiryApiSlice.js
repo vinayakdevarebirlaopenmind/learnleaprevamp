@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const enquiryApiSlice = createApi({
   reducerPath: "enquiryApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080", 
-    // baseUrl: "https://birlaedutech.in", 
+    // baseUrl: "http://localhost:8080", 
+    baseUrl: "https://birlaedutech.in", 
     credentials: "include",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("accessToken");
