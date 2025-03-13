@@ -73,6 +73,21 @@ export function CartPage() {
     showAlert(`Course removed successfully!`, "success");
   };
 
+  const verifyPayment = async (transactionId) => {
+    try {
+      const response = await axios.post(
+        "https://birlaedutech.in/api/verify-payment",
+        {
+          transactionId,
+        }
+      );
+      const verificationResult = response.data;
+      console.log("Verification Result:", verificationResult);
+      // Handle verification result here (e.g., display success/failure message)
+    } catch (error) {
+      console.error("Verification failed:", error);
+    }
+  };
   // Handle checkout
   const handleCheckout = async () => {
     if (!isAuthenticated || !user) {
@@ -119,6 +134,7 @@ export function CartPage() {
 
       document.body.appendChild(form);
       form.submit();
+      verifyPayment(payuData.txnid);
     } catch (error) {
       console.error("Payment Error:", error);
       showAlert("Payment failed. Try again later.", "error");

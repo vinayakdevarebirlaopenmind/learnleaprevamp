@@ -11,15 +11,16 @@ import {
   IconButton,
   Container,
 } from "@mui/material";
-import { Facebook, Twitter } from "@mui/icons-material";
+import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import Header from "../header";
-
+import { useSelector } from "react-redux";
+import TwitterLogo from "../../assets/image/twitter-new-logo.png";
 const UserProfile = () => {
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
   return (
     <>
-    <Header/>
-      <Container maxWidth="md" sx={{ display: "flex", py: 4 }}>
-        {/* Sidebar */}
+      <Header />
+      <Container maxWidth="lg" sx={{ display: "flex", py: 4 }}>
         <Box
           sx={{
             width: 250,
@@ -28,11 +29,9 @@ const UserProfile = () => {
             pr: 2,
           }}
         >
-          <Avatar sx={{ width: 80, height: 80, mb: 2 }}>V</Avatar>
-          <Typography variant="h6">Vinayak</Typography>
-          <Typography variant="body2" color="text.secondary">
-            View public profile
-          </Typography>
+          <Avatar sx={{ width: 80, height: 80, mb: 2 }}>{user?.image}</Avatar>
+          <Typography variant="h6">{user?.name}</Typography>
+         
           <Divider sx={{ my: 2 }} />
           <Typography variant="body2" sx={{ mb: 1, cursor: "pointer" }}>
             Profile
@@ -40,27 +39,58 @@ const UserProfile = () => {
           <Typography variant="body2" sx={{ mb: 1, cursor: "pointer" }}>
             Photo
           </Typography>
-          <Typography variant="body2" sx={{ mb: 1, cursor: "pointer" }}>
+          {/* <Typography variant="body2" sx={{ mb: 1, cursor: "pointer" }}>
             Account Security
-          </Typography>
+          </Typography> */}
         </Box>
 
         {/* Main Profile Section */}
         <Box sx={{ flex: 1, pl: { md: 4 } }}>
-          <Typography variant="h5" gutterBottom>
-            Public Profile
-          </Typography>
+          <p className="common-title">
+            Your <span className="color-effect">Profile</span>
+          </p>
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Add information about yourself
           </Typography>
-          <TextField fullWidth label="First Name" sx={{ mb: 2 }} />
-          <TextField fullWidth label="Last Name" sx={{ mb: 2 }} />
           <TextField
             fullWidth
-            label="Headline"
-            helperText="Add a professional headline like 'Instructor at Udemy' or 'Architect.'"
-            sx={{ mb: 2 }}
+            sx={{ mb: 2, mt: 2 }}
+            label="User Id"
+            value={user?.user_uid}
+            disabled
           />
+          <TextField
+            fullWidth
+            sx={{ mb: 2, mt: 2 }}
+            label="Full Name"
+            value={user?.name}
+          />
+          <TextField
+            fullWidth
+            sx={{ mb: 2 }}
+            label="Phone Number"
+            value={user?.phone || user?.mobile}
+          />{" "}
+          <TextField
+            fullWidth
+            sx={{ mb: 2 }}
+            label="Email"
+            value={user?.email}
+          />
+          <TextField fullWidth sx={{ mb: 2 }} label="Age" value={user?.age} />{" "}
+          <TextField
+            fullWidth
+            sx={{ mb: 2 }}
+            label="Gender"
+            value={user?.gender || user?.gender}
+          />{" "}
+          <TextField
+            fullWidth
+            sx={{ mb: 2 }}
+            label="State"
+            value={user?.state}
+          />{" "}
+          <TextField fullWidth sx={{ mb: 2 }} label="City" value={user?.city} />
           <TextField
             fullWidth
             label="About Me"
@@ -68,21 +98,21 @@ const UserProfile = () => {
             rows={3}
             sx={{ mb: 2 }}
           />
-          <Select fullWidth defaultValue="en" sx={{ mb: 2 }}>
-            <MenuItem value="en">English (US)</MenuItem>
-            <MenuItem value="fr">French</MenuItem>
-          </Select>
           <Divider sx={{ my: 2 }} />
           <Typography variant="h6">Links</Typography>
-          <TextField fullWidth label="Website" sx={{ mb: 2 }} />
           <TextField
             fullWidth
-            label="Twitter Profile"
+            placeholder="https://www.instagram.com/"
+            label="Instagram Profile"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
                   <IconButton>
-                    <Twitter color="primary" />
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                      alt="Instagram"
+                      style={{ width: 24, height: 24 }}
+                    />
                   </IconButton>
                 </InputAdornment>
               ),
@@ -91,6 +121,26 @@ const UserProfile = () => {
           />
           <TextField
             fullWidth
+            placeholder="https://x.com/"
+            label="Twitter Profile"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <IconButton>
+                    <img
+                      src={TwitterLogo}
+                      alt="Twitter"
+                      style={{ width: 24, height: 24 }}
+                    />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            sx={{ mb: 2 }}
+          />
+          <TextField
+            fullWidth
+            placeholder="https://www.facebook.com/"
             label="Facebook Profile"
             InputProps={{
               startAdornment: (
