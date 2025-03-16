@@ -1,0 +1,80 @@
+.footer-wrapper {
+  /* background: linear-gradient(to left top, #005EA0, #0369a1); */
+  background: var(--color-primary-light-cyan);
+  color: #ffffff;
+  padding: 4rem 0 2rem 0;
+  position: relative;
+}
+
+.business-card {
+  background: white;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: start;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.business-card:hover {
+  /* background: rgba(255, 255, 255, 0.3); */
+  backdrop-filter: blur(15px);
+  /* box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2); */
+  transform: scale(1.05);
+}
+
+.logo-wrapper img {
+  height: 80px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-wrapper img:hover {
+  transform: scale(1.1);
+}
+
+.link-column .footer-link {
+  display: block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-column .footer-link:hover {
+  color: #90caf9;
+}
+
+.social-icon {
+  color: #ffffff;
+  margin: 0 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: #90caf9;
+}
+
+.scroll-top-button {
+  position: absolute;
+  right: 2rem;
+  top: -1.5rem;
+  background-color: #ffffff;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.scroll-top-button:hover {
+  background-color: #e3f2fd;
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: 2rem;
+  opacity: 0.7;
+}
