@@ -10,15 +10,8 @@ import "./css/Modal.css";
 import { EnquiryModal } from "./Modal/EnquiryModal";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/authSlice";
-import {
-  menuItems,
-  profileDropdown,
-  trendingSearches,
-} from "../constants/constants";
-import {
-  Box,
-
-} from "@mui/material";
+import { menuItems, trendingSearches } from "../constants/constants";
+import { Box } from "@mui/material";
 import ProfileDropdown from "./UserProfile/ProfileDropdown";
 const Header = () => {
   const [showNotification, setShowNotification] = useState(true);
@@ -29,7 +22,7 @@ const Header = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -40,21 +33,9 @@ const Header = () => {
   const [isActive, setIsActive] = useState(false);
 
   const handleNavigation = (path) => {
-    console.log(path);
     navigate(path);
   };
-  const handleLogout = () => {
-    dispatch(logout());
-    localStorage.removeItem("accessToken");
-    navigate("/login");
-  };
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
   const { isAuthenticated, user } = useSelector((state) => state.auth);
   const [timeLeft, setTimeLeft] = useState({
     hours: 12,
@@ -181,6 +162,10 @@ const Header = () => {
   const handleClickJoinNow = () => {
     setIsActive(true);
     setShowEnquiryModal(true);
+  };
+  const toggleDrawer = (event) => {
+    event.stopPropagation(); // Prevent event bubbling
+    setIsDrawerOpen((prev) => !prev);
   };
   return (
     <>
@@ -342,8 +327,8 @@ const Header = () => {
             )}
           </div>
 
-          <label className="hamburger">
-            <input type="checkbox" />
+          <label className="hamburger" onClick={toggleDrawer}>
+            <input type="checkbox" checked={isDrawerOpen} readOnly />
             <svg viewBox="0 0 32 32">
               <path
                 className="line line-top-bottom"
@@ -352,7 +337,21 @@ const Header = () => {
               <path className="line" d="M7 16 27 16"></path>
             </svg>
           </label>
-        </header>
+        </header>{" "}
+        {isDrawerOpen && (
+          <div className="full-page-drawer">
+            <button className="drawer-close" onClick={toggleDrawer}>
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+            <ul className="drawer-menu">
+              {menuItems.map((item, index) => (
+                <li key={index} onClick={() => navigate(item.path)}>
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <EnquiryModal

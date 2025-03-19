@@ -73,24 +73,10 @@ export function CartPage() {
     showAlert(`Course removed successfully!`, "success");
   };
 
-  // const verifyPayment = async (transactionId) => {
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:8080/api/payments/verify-payment",
-  //       {
-  //         transactionId,
-  //       }
-  //     );
-  //     const verificationResult = response.data;
-  //     console.log("Verification Result:", verificationResult);
-  //   } catch (error) {
-  //     console.error("Verification failed:", error);
-  //   }
-  // };
   // Handle checkout
   const handleCheckout = async () => {
     if (!isAuthenticated || !user) {
-      showAlert("You are not logged in. Please login first!", "error");
+      showAlert("You are not logged in. Redirecting to login! ", "error");
       setTimeout(() => navigate("/login"), 2000);
       return;
     }
@@ -108,12 +94,12 @@ export function CartPage() {
         // "http://localhost:8080/api/payments/pay",
         `${API_URL}/api/payments/pay`,
         {
-          amount: finalTotal,
+          amount: finalTotal.toFixed(2).toString(),
           firstname: user.name,
           email: user.email,
           phone: user.phone || user.mobile || "",
           user_id: user.id, // ✅ Send user_id from frontend
-          productinfo: JSON.stringify(productInfo),
+          productinfo: cartItems.map((item) => item.title).join(", "),
         }
       );
 

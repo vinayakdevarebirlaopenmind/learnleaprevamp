@@ -4,6 +4,7 @@ import axios from "axios";
 import SuccessFullPayment from "../../assets/image/succesfull_payment.jpg"; // Ensure the path is correct
 import Header from "../header";
 import { API_URL } from "../../constants/constants";
+import { clearCart } from "../../store/cartSlice";
 
 export default function Success() {
   const navigate = useNavigate();
@@ -24,16 +25,20 @@ export default function Success() {
 
     const verifyPayment = async () => {
       try {
-        const { data } = await axios.post(
+        const response = await axios.post(
           `${API_URL}/api/payments/verify-payment`,
           { transactionId: txnid },
           { headers: { "Content-Type": "application/json" } }
         );
+        console.log(response.data.status);
 
-        if (data.success) {
+        if (response.data.status === "success") {
           setVerificationStatus("Payment Verified Successfully! ✅");
+          dispatch(clearCart());
         } else {
-          setVerificationStatus(`Verification Failed: ${data.message} ❌`);
+          setVerificationStatus(
+            `Verification Failed: ${response.data.message} ❌`
+          );
         }
       } catch (error) {
         setVerificationStatus("Error verifying payment. Please try again.");
@@ -57,7 +62,7 @@ export default function Success() {
           alt="Payment Successful"
           style={{ width: "300px", height: "auto", margin: "20px 0" }}
         />
-        <h3>{loading ? "Verifying payment..." : verificationStatus}</h3>
+        {/* <h3>{loading ? "Verifying payment..." : verificationStatus}</h3> */}
         <div
           className="cta-buttons"
           style={{

@@ -640,7 +640,6 @@
   transform: translateX(5px); /* Moves the item slightly to the right */
 }
 
-
 /* mobile view start here  */
 @media (max-width: 1124px) {
   .main-dropdown-container {
@@ -716,4 +715,50 @@
   .cart-icon-container {
     display: none;
   }
+}
+/* Full Page Drawer */
+.full-page-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Dark overlay */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Close Button */
+.drawer-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Drawer Menu */
+.drawer-menu {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.drawer-menu li {
+  font-size: 24px;
+  padding: 15px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.drawer-menu li:hover {
+  color: #ffcc00;
 }
