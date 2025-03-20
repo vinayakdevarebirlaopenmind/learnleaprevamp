@@ -14,7 +14,7 @@ import { API_URL, FormatIndianNumber } from "../../constants/constants";
 import { useState } from "react";
 import { Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
-import CartImage from "../../assets/image/trolley_page.jpg";
+import CartImage from "../../assets/image/trolley_page.png";
 
 export function CartPage() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -87,21 +87,26 @@ export function CartPage() {
         id: item.id,
         title: item.title,
         quantity: item.quantity,
-        price: item.price, // ✅ Correct: Use item.price instead of finalTotal
+        price: finalTotal, // ✅ Correct: Use item.price instead of finalTotal
       }));
 
-      const response = await axios.post(
-        // "http://localhost:8080/api/payments/pay",
-        `${API_URL}/api/payments/pay`,
-        {
-          amount: finalTotal.toFixed(2).toString(),
-          firstname: user.name,
-          email: user.email,
-          phone: user.phone || user.mobile || "",
-          user_id: user.id, // ✅ Send user_id from frontend
-          productinfo: cartItems.map((item) => item.title).join(", "),
-        }
-      );
+      // const productInfo = {
+      //   id: cartItems[0].id,
+      //   title: cartItems[0].title,
+      //   quantity: cartItems[0].quantity,
+      //   price: cartItems[0].price,
+      // };
+      // console.log(productInfo);
+      // return;
+
+      const response = await axios.post(`${API_URL}/api/payments/pay`, {
+        amount: finalTotal.toFixed(2).toString(),
+        firstname: user.name,
+        email: user.email,
+        phone: user.phone || user.mobile || "",
+        user_id: user.id,
+        productinfo: JSON.stringify(productInfo),
+      });
 
       const { payuData, action } = response.data;
 

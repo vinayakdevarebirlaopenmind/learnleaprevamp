@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import SuccessFullPayment from "../../assets/image/succesfull_payment.jpg"; // Ensure the path is correct
+import SuccessFullPayment from "../../assets/image/succesfull_payment.png"; // Ensure the path is correct
 import Header from "../header";
 import { API_URL } from "../../constants/constants";
 import { clearCart } from "../../store/cartSlice";
+import { useDispatch } from "react-redux";
 
 export default function Success() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [verificationStatus, setVerificationStatus] = useState("");
@@ -30,14 +32,14 @@ export default function Success() {
           { transactionId: txnid },
           { headers: { "Content-Type": "application/json" } }
         );
-        console.log(response.data.status);
+        console.log("Full Response:", response);
 
-        if (response.data.status === "success") {
-          setVerificationStatus("Payment Verified Successfully! ✅");
+        if (response.data.data.status === 1) {
+          setVerificationStatus("Payment Verified Successfully!");
           dispatch(clearCart());
         } else {
           setVerificationStatus(
-            `Verification Failed: ${response.data.message} ❌`
+            `Verification Failed: ${response.data.message}`
           );
         }
       } catch (error) {

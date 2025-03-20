@@ -9,7 +9,7 @@ import { useGoogleAuthMutation, useLoginMutation } from "../../store/apiSlice"; 
 import { setUser } from "../../store/authSlice";
 import { motion } from "framer-motion";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-
+import LoginPage from "../../assets/image/login.png";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -106,10 +106,7 @@ const Login = () => {
       <Header />
       <div className="login-container">
         <div className="login-image">
-          <img
-            src="https://frontends.udemycdn.com/components/auth/desktop-illustration-step-2-x1.webp"
-            alt="Login Illustration"
-          />
+          <img src={LoginPage} alt="Login Illustration" />
         </div>
 
         <div className="login-form">
