@@ -1,5 +1,6 @@
 import Header from "../header";
 import "./PrivacyPolicy.css";
+import Learnleaplogo from "../../assets/image/LearnLeap Final Logo.png";
 
 const PrivacyPolicy = () => {
   return (
@@ -264,9 +265,14 @@ const PrivacyPolicy = () => {
           </p>
 
           <p>
-            <strong>Learn Leap</strong> <br /> Piramal Tower, 9th Floor, Unit
-            901, B Wing, Peninsula Corporate Park, Lower Parel (W), Mumbai - 400
-            013.
+            <img
+              className="logo"
+              src={Learnleaplogo}
+              alt=""
+              onClick={() => navigate("/")}
+            />{" "}
+            <br /> Piramal Tower, 9th Floor, Unit 901, B Wing, Peninsula
+            Corporate Park, Lower Parel (W), Mumbai - 400 013.
             <br /> Email: learnleap@birlaopenminds.com <br /> Phone:
             +91-7977768801
           </p>
