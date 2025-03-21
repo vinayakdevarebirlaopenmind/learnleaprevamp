@@ -1,0 +1,14 @@
+.privacy-container {
+  margin: var(--margin);
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+strong {
+  /* color: #e74c3c; */
+  color: var(--color-primary-light-cyan);
+}

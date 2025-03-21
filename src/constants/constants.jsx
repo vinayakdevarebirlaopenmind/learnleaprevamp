@@ -22,9 +22,12 @@ export const trendingSearches = [
 
 //links
 export const menuItems = [
-  { id: 2, name: "Events", path: "/events" },
-  { id: 3, name: "Enquire Now", path: "/enquireform" },
-  { id: 4, name: "FAQs", path: "/faqs" },
+  { id: 1, name: "Events", path: "/events" },
+  { id: 2, name: "Enquire Now", path: "/enquireform" },
+  { id: 3, name: "FAQs", path: "/faqs" },
+  { id: 4, name: "Privacy Policy", path: "/privacypolicy" },
+  { id: 4, name: "Refund Policy", path: "/refundpolicy" },
+  
 ];
 
 //course cards

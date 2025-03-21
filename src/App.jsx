@@ -26,6 +26,8 @@ import WishlistPage from "./components/Wishlist/WishlistPage";
 import Failure from "./components/PaymentPage/Failure";
 import Success from "./components/PaymentPage/SuccessPage";
 import ScrollToTop from "./constants/ScrollToTop";
+import PrivacyPolicy from "./components/PolicyPages/PrivacyPolicy";
+import RefundPolicy from "./components/PolicyPages/RefundPolicy";
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -83,6 +85,8 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/yourwishlist" element={<WishlistPage />} />
           <Route path="/events" element={<Eventpage />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/refundpolicy" element={<RefundPolicy />} />
           <Route path="/failure" element={<Failure />} />
           <Route path="/success" element={<Success />} />
 
@@ -101,7 +105,7 @@ function PageWrapper({ setLoading }) {
 
   useEffect(() => {
     setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 1500); // Simulating load time
+    const timer = setTimeout(() => setLoading(false), 500); // Simulating load time
     return () => clearTimeout(timer);
   }, [location]);
 

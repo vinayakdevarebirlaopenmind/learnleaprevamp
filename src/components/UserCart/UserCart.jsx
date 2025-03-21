@@ -75,11 +75,11 @@ export function CartPage() {
 
   // Handle checkout
   const handleCheckout = async () => {
-    if (!isAuthenticated || !user) {
-      showAlert("You are not logged in. Redirecting to login! ", "error");
-      setTimeout(() => navigate("/login"), 2000);
-      return;
-    }
+    // if (!isAuthenticated || !user) {
+    //   showAlert("You are not logged in. Redirecting to login! ", "error");
+    //   setTimeout(() => navigate("/login"), 2000);
+    //   return;
+    // }
 
     try {
       // Extract product info from cartItems
@@ -87,7 +87,7 @@ export function CartPage() {
         id: item.id,
         title: item.title,
         quantity: item.quantity,
-        price: finalTotal, // ✅ Correct: Use item.price instead of finalTotal
+        price: subtotal, // ✅ Correct: Use item.price instead of finalTotal
       }));
 
       // const productInfo = {

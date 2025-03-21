@@ -41,9 +41,9 @@
   --image-height: clamp(auto, 150px, 300px);
 
   /* margin and padding */
-  --margin: 0 clamp(5%, 10vw, 10%);
-  --padding-top: clamp(32px, 5vw, 64px);
-  --padding-bottom: clamp(32px, 5vw, 64px);
+  --margin: 0 clamp(2%, 10vw, 10%);
+  --padding-top: clamp(15px, 5vw, 64px);
+  --padding-bottom: clamp(15px, 5vw, 64px);
 
   /* background color */
   --course-bg-color: #6039fc;
