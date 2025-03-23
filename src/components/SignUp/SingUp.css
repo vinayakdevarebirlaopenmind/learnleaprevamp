@@ -1,0 +1,206 @@
+.signup-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: auto;
+  margin-top: 1rem;
+}
+
+/* Left Side (Image Section) */
+.signup-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-image img {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Right Side (Form Section) */
+.signup-form {
+  /* padding: 40px; */
+  max-width: 400px;
+  display: grid;
+  gap: 15px;
+}
+
+.signup-form h1 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: start;
+}
+
+.signup-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+/* .signup-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+  } */
+
+/* Form Grid Layout */
+.signup-form form {
+  display: grid;
+  gap: 15px;
+}
+/* Input Field Wrapper */
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Input Field */
+.signup-form input {
+  width: 93.5%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Floating Label */
+.input-container label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #666;
+  background: white;
+  padding: 0 5px;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+/* When Input is Focused or Has Content */
+.signup-form input:focus + label,
+.signup-form input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 15px;
+  color:  var(--color-primary-light-cyan);
+}
+
+/* .signup-form input, */
+.signup-form button {
+  /* width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color:  var(--color-primary-light-cyan);
+  cursor: pointer;
+  color: white;
+  font-size: 16px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+  background-color:  var(--color-primary-light-cyan);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid  var(--color-primary-light-cyan);
+}
+
+.signup-form button:hover {
+  background-color: #fff;
+  color:  var(--color-primary-light-cyan);
+  border: 1px solid  var(--color-primary-light-cyan);
+}
+
+.signup-terms,
+.signup-login {
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-form a {
+  color:  var(--color-primary-light-cyan);
+  text-decoration: none;
+}
+
+.signup-form a:hover {
+  text-decoration: underline;
+}
+.or-option {
+  text-align: center;
+}
+.password-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+  color: #007bff;
+}
+
+.password-strength {
+  margin-top: 10px;
+  font-size: 14px;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.password-strength ul {
+  list-style: none;
+  padding: 0;
+}
+
+.password-strength li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.valid {
+  color: var(--green-color);
+  font-weight: bold;
+}
+
+.invalid {
+  color:  var(--red-color);
+}
+.error-text {
+  color:  var(--red-color);
+}
+
+/* 📱 Mobile View - Hide Image and Stack Form */
+@media (max-width: 768px) {
+  .signup-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .signup-image {
+    display: none;
+  }
+
+  .signup-form {
+    width: 100%;
+    max-width: 100%;
+  }
+}

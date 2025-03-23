@@ -1,0 +1,68 @@
+/* General container styles */
+.privacy-container {
+  gap: 8em;
+  margin: var(--margin);
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+}
+
+
+
+.color-effect {
+  color: #007bff;
+}
+
+/* Section styling */
+.policy-section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid var(--color-primary-light-cyan);
+}
+
+/* Headings */
+.policy-section h3 {
+  font-size: 22px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* Paragraphs */
+.policy-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* List styling */
+.policy-section ul {
+  padding-left: 20px;
+}
+
+.policy-section li {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+/* Contact information */
+.contact-info {
+  text-align: start;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
