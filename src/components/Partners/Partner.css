@@ -1,0 +1,80 @@
+/* Container for the entire section */
+.partners-section {
+  text-align: start;
+  margin: var(--margin);
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+}
+
+/* Heading styling */
+.partners-heading {
+  font-size: var(--h4-font-size);
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.partners-section h2 span {
+  border-radius: 12px;
+  padding: 6px;
+  /* background: var(--gradient-background); */
+  color: #fff;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.partners-section h2 span:hover {
+  /* background: #4949ff; */
+  transform: scale(1.05); /* Slight scaling for a smooth effect */
+}
+.partner-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.partner-carousel {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.partner-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Allow the height to adjust */
+  max-height: 158px; /* Adjust max-height for mobile */
+}
+
+.partner-img img {
+  width: 100%; /* Ensures responsiveness */
+  max-width: 250px; /* Adjust to fit better in mobile */
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* .partner-img img:hover {
+  transform: scale(1.1);
+} */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .partner-img {
+    max-height: 120px; /* Reduce height for smaller screens */
+  }
+
+  .partner-img img {
+    max-width: 180px; /* Adjust width for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-img {
+    max-height: 100px;
+  }
+
+  .partner-img img {
+    max-width: 150px; /* Reduce further for mobile */
+  }
+}

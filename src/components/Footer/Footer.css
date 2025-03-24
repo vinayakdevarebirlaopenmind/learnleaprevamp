@@ -1,0 +1,80 @@
+.footer-wrapper {
+  background: var(--color-primary-light-cyan);
+  color: #ffffff;
+  padding: 3rem 0;
+  text-align: start;
+}
+
+.business-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: start;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.business-card:hover {
+  transform: scale(1.05);
+}
+
+.logo-wrapper img {
+  height: 80px;
+}
+
+.link-column .footer-link {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.social-icon {
+  color: var(--color-primary-light-cyan);
+  margin: 0 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  color: #90caf9;
+}
+
+.footer-text {
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.footer-menu {
+  display: flex;
+  flex-wrap: wrap; /* Ensures items wrap on smaller screens */
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  gap: 20px; /* Adds spacing between items */
+}
+
+.footer-menu li {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-menu li:hover {
+  color: var(--color-primary-light-cyan);
+}
+
+@media (max-width: 768px) {
+  .footer-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-menu li {
+    margin-bottom: 10px;
+  }
+}
