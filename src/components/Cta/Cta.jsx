@@ -15,9 +15,10 @@ function Cta() {
         <h1>
           Your <span className="color-effect">Journey</span> Shouldn't End Here.
         </h1>
-        <p className="subtitle">
+        {/* <p className="subtitle">
           Interested in becoming an instructor? Click below to apply now!
-        </p>
+        </p> */}
+        <p className="subtitle">Apply for a Career with Us.</p>
         <button className="join-btn" onClick={handleApply}>
           Apply here
         </button>

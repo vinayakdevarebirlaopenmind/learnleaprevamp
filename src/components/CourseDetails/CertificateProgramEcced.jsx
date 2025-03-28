@@ -51,6 +51,8 @@ import SuccessAlert from "../Alerts/SuccesAlert";
 import { addToCart } from "../../store/cartSlice";
 import { addToWishlist, removeFromWishlist } from "../slice/wishlistSlice";
 import { useLocation, useNavigate } from "react-router-dom";
+import { LiaBlackTie } from "react-icons/lia";
+import ModernFooter from "../Footer/Footer";
 export const CertificateProgramEcced = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const dispatch = useDispatch();
@@ -136,7 +138,7 @@ export const CertificateProgramEcced = () => {
     setShowSuccess(true);
   };
   return (
-    <div>
+    <>
       <Header />
       {/* Success Alert */}
       <SuccessAlert
@@ -212,7 +214,7 @@ export const CertificateProgramEcced = () => {
           </div>
 
           <div className="course-instructors">
-            <span>Created by: Satwant Palekar, Priya Gopal</span>
+            {/* <span>Created by: Satwant Palekar, Priya Gopal</span> */}
           </div>
 
           <div className="course-info">
@@ -283,6 +285,10 @@ export const CertificateProgramEcced = () => {
               <li>
                 <WorkspacePremium style={{ color: "blue" }} /> Certificate of
                 completion
+              </li>{" "}
+              <li>
+                <LiaBlackTie style={{ color: "blue", fontSize: "24px" }} /> 100%
+                Placement Assistance
               </li>
             </ul>
           </div>
@@ -304,7 +310,12 @@ export const CertificateProgramEcced = () => {
                 aria-controls={`panel${index}-content`}
                 id={`panel${index}-header`}
               >
-                <Typography component="span">{module.title}</Typography>
+                <Typography
+                  component="span"
+                  sx={{ fontWeight: "bold", color: "#333" }}
+                >
+                  {module.title}
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>{module.details}</AccordionDetails>
             </Accordion>
@@ -337,11 +348,11 @@ export const CertificateProgramEcced = () => {
               <iframe
                 width="100%"
                 height="315"
-                src="https://www.youtube.com/embed/vTNdFlXBon0"
+                src="https://www.youtube.com/embed/aSCboI7o6Wk"
                 title="YouTube video player"
-                frameBorder="0"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                allowfullscreen
               ></iframe>
             </div>
           </div>
@@ -378,6 +389,7 @@ export const CertificateProgramEcced = () => {
           </div>
         </div>
       </div>
-    </div>
+      <ModernFooter />
+    </>
   );
 };

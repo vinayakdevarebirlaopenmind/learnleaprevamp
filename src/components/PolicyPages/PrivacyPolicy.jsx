@@ -1,6 +1,7 @@
 import Header from "../header";
 import "./PrivacyPolicy.css";
 import Learnleaplogo from "../../assets/image/LearnLeap Final Logo.png";
+import ModernFooter from "../Footer/Footer";
 
 const PrivacyPolicy = () => {
   return (
@@ -278,6 +279,7 @@ const PrivacyPolicy = () => {
           </p>
         </div>
       </div>
+      <ModernFooter />
     </>
   );
 };

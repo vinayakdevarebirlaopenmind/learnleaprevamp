@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../header";
 import "./RefundPolicy.css";
+import ModernFooter from "../Footer/Footer";
 
 function RefundPolicy() {
   return (
@@ -101,6 +102,7 @@ function RefundPolicy() {
           </div>
         </div>
       </div>
+      <ModernFooter />
     </>
   );
 }

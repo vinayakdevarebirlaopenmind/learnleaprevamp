@@ -15,6 +15,7 @@ import { useState } from "react";
 import { Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
 import CartImage from "../../assets/image/trolley_page.png";
+import ModernFooter from "../Footer/Footer";
 
 export function CartPage() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -260,6 +261,7 @@ export function CartPage() {
         )}
       </div>
       <CourseSection />
+      <ModernFooter />
     </>
   );
 }

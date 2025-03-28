@@ -2,32 +2,33 @@ import React, { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./VideoTestimonialSection.css";
-
+import ThumbnailFinalSoumaliGhoshal from "../../assets/image/Thumbnail-Final-Soumali-Ghoshal.jpg";
+import ThumbnailFinalVarunTuli from "../../assets/image/Thumbnail-Final-Varun-Tuli.jpg";
 const videotestimonials = [
   {
     id: 1,
     videoUrl: "https://youtube.com/shorts/_sXPKF8u64Y?si=cahaAfjI2Yz_3xTr",
-    thumbnailUrl: "https://images.unsplash.com/photo-1557804506-669a67965ba0",
-    name: "Anish Sharma",
-    profession: "People’s Analytics Consultant @Momentum Group",
-    text: "Birla LearnLeap’s teachers are exceptional. Their data science program helped me transition from commerce to a successful career in analytics.",
+    thumbnailUrl: ThumbnailFinalSoumaliGhoshal,
+    name: "Soumali Ghoshal",
+    // profession: "People’s Analytics Consultant @Momentum Group",
+    text: "The K-12 Teacher Training program was a wonderful experience that enhanced my teaching skills with practical activities, case studies, and classroom management techniques. It boosted my confidence and helped me create a positive learning environment using technology and multimedia.",
   },
   {
     id: 2,
-    videoUrl: "https://youtube.com/shorts/_sXPKF8u64Y?si=cahaAfjI2Yz_3xTr",
-    thumbnailUrl: "https://images.unsplash.com/photo-1557804506-669a67965ba0",
-    name: "Rahul Verma",
-    profession: "Data Scientist @TechCorp",
-    text: "I gained real-world experience through their practical assignments. It gave me the confidence to switch careers successfully.",
+    videoUrl: "https://youtube.com/shorts/2apEq_rV7n8?si=iZydPrscilroMI76",
+    thumbnailUrl: ThumbnailFinalVarunTuli,
+    name: "Varun Tuli",
+    // profession: "Data Scientist @TechCorp",
+    text: "A heartfelt thanks to Team Birla LearnLeap for an exceptional and immensely helpful K-12 teaching course. The guidance from mentors, valuable skills, and certification will be a great asset in my teaching career. I am truly glad to have been a part of this journey.",
   },
-  {
-    id: 3,
-    videoUrl: "https://youtube.com/shorts/_sXPKF8u64Y?si=cahaAfjI2Yz_3xTr",
-    thumbnailUrl: "https://images.unsplash.com/photo-1557804506-669a67965ba0",
-    name: "Rahul Verma",
-    profession: "Data Scientist @TechCorp",
-    text: "I gained real-world experience through their practical assignments. It gave me the confidence to switch careers successfully.",
-  },
+  // {
+  //   id: 3,
+  //   videoUrl: "https://youtube.com/shorts/_sXPKF8u64Y?si=cahaAfjI2Yz_3xTr",
+  //   thumbnailUrl: ThumbnailFinalSoumaliGhoshal,
+  //   name: "Soumali Ghoshal",
+  //   // profession: "Data Scientist @TechCorp",
+  //   text: "The K-12 Teacher Training program was a wonderful experience that enhanced my teaching skills with practical activities, case studies, and classroom management techniques. It boosted my confidence and helped me create a positive learning environment using technology and multimedia.",
+  // },
 ];
 
 const responsive = {

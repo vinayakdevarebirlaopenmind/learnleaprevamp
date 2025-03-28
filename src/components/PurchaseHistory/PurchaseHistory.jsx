@@ -7,6 +7,7 @@ import Header from "../header";
 import "./PurchaseHistory.css";
 import { Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
+import ModernFooter from "../Footer/Footer";
 
 function PurchaseHistory() {
   const [transactions, setTransactions] = useState([]);
@@ -124,6 +125,7 @@ function PurchaseHistory() {
           !loading && !error && <p>No transactions found.</p>
         )}
       </div>
+      <ModernFooter />
     </>
   );
 }

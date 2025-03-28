@@ -9,6 +9,7 @@ import { useGoogleAuthMutation, useSignupMutation } from "../../store/apiSlice";
 import { useDispatch } from "react-redux";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { motion } from "framer-motion";
+import ModernFooter from "../Footer/Footer";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -236,6 +237,7 @@ const SignUp = () => {
           </p>
         </div>
       </div>
+      <ModernFooter />
     </>
   );
 };

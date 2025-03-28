@@ -44,6 +44,8 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import SuccessAlert from "../Alerts/SuccesAlert";
 import { addToCart } from "../../store/cartSlice";
+import { LiaBlackTie } from "react-icons/lia";
+import ModernFooter from "../Footer/Footer";
 export const DiplomaProgram = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const dispatch = useDispatch();
@@ -141,7 +143,7 @@ export const DiplomaProgram = () => {
   };
 
   return (
-    <div>
+    <>
       <Header />
       <SuccessAlert
         open={showSuccess}
@@ -216,7 +218,7 @@ export const DiplomaProgram = () => {
           </div>
 
           <div className="course-instructors">
-            <span>Created by: Priya Gopal, Satwant Palekar</span>
+            {/* <span>Created by: Priya Gopal, Satwant Palekar</span> */}
           </div>
 
           <div className="course-info">
@@ -284,6 +286,10 @@ export const DiplomaProgram = () => {
               <li>
                 <WorkspacePremium style={{ color: "blue" }} /> Certificate of
                 completion
+              </li>{" "}
+              <li>
+                <LiaBlackTie style={{ color: "blue", fontSize: "24px" }} /> 100%
+                Placement Assistance
               </li>
             </ul>
           </div>
@@ -305,7 +311,12 @@ export const DiplomaProgram = () => {
                 aria-controls={`panel${index}-content`}
                 id={`panel${index}-header`}
               >
-                <Typography component="span">{module.title}</Typography>
+                <Typography
+                  component="span"
+                  sx={{ fontWeight: "bold", color: "#333" }}
+                >
+                  {module.title}
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>{module.details}</AccordionDetails>
             </Accordion>
@@ -338,11 +349,11 @@ export const DiplomaProgram = () => {
               <iframe
                 width="100%"
                 height="315"
-                src="https://www.youtube.com/embed/vTNdFlXBon0"
+                src="https://www.youtube.com/embed/aSCboI7o6Wk"
                 title="YouTube video player"
-                frameBorder="0"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                allowfullscreen
               ></iframe>
             </div>
           </div>
@@ -379,6 +390,7 @@ export const DiplomaProgram = () => {
           </div>
         </div>
       </div>
-    </div>
+      <ModernFooter />
+    </>
   );
 };

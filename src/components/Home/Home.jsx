@@ -21,6 +21,7 @@ import {
 } from "react-icons/fa";
 import VissionImage from "../../assets/image/shared-vision.png";
 import MissionImage from "../../assets/image/target.png";
+import ModernFooter from "../Footer/Footer";
 const Home = () => {
   const features = [
     {
@@ -114,7 +115,7 @@ const Home = () => {
           </div>
         </section>
       </div>
-      <section className="about-footer">
+      {/* <section className="about-footer">
         <h2 className="common-heading">LEARN TODAY, LEAD TOMORROW.</h2>
         <p className="common-title">
           WHY CHOOSE {""}
@@ -129,13 +130,14 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
       <OurOfferings />
 
       <TestimonialList />
-      {/* <VideoTestimonialSection /> */}
+      <VideoTestimonialSection />
       <FAQsection />
       <Cta />
+      <ModernFooter/>
     </>
   );
 };

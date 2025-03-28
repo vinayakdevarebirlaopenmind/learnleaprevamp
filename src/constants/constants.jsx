@@ -3,6 +3,13 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import VarunTulli from "../assets/image/varun-tuli.jpeg";
 import Soumali from "../assets/image/Soumali Ghoshal - K12.jpeg";
 import Santosh from "../assets/image/S.Santosh.jpeg";
+import K12image from "../assets/image/k12-image.webp";
+import CertificateProgramEccedImage from "../assets/image/certificate-ecced-program.webp";
+import CertificateProgramLeadership from "../assets/image/certificate-program-leadershipt.webp";
+import Diplomaprogramecced from "../assets/image/diploma-program-ecced.webp";
+import Burlingtonenglish from "../assets/image/burlington-english.webp";
+import JaniceRayan from "../assets/image/jannice-rayan.webp";
+import JanneteFernando from "../assets/image/jannete-fernanado.webp";
 //trending search
 export const trendingSearches = [
   { id: 1, name: "Certificate Program for ECCEd", path: "/ecced-certificate" },
@@ -45,8 +52,7 @@ export const courses = [
     reviews: "9,070",
     price: 10000,
     oldPrice: "₹25,499",
-    image:
-      "https://birlalearnleap.com/media/cache/lg/26d796cb7beb9d6a953afc096d5501a689813933.jpg",
+    image: CertificateProgramEccedImage,
     route: "/ecced-certificate",
   },
   {
@@ -57,8 +63,7 @@ export const courses = [
     reviews: "153",
     price: 35000,
     oldPrice: "₹55,499",
-    image:
-      "https://birlalearnleap.com/media/cache/lg/449ebc4f2f7e15c2b1f06b0843bb23586612a9ee.jpg",
+    image: Diplomaprogramecced,
     route: "/ecced-diploma",
   },
   {
@@ -69,8 +74,7 @@ export const courses = [
     reviews: "128",
     price: 10000,
     oldPrice: "₹13,499",
-    image:
-      "https://birlalearnleap.com/media/cache/lg/55fca700a276414de12f141b89a54be87de8c6d9.jpg",
+    image: K12image,
     route: "/k12-certificate",
   },
   {
@@ -79,10 +83,9 @@ export const courses = [
     instructor: "Satwant Palekar, Priya Gopal",
     rating: 4.3,
     reviews: "4,175",
-    price: 20000,
+    price: 10000,
     oldPrice: "₹35,499",
-    image:
-      "https://birlalearnleap.com/media/cache/lg/dfb1f9348970f0f137e261d5e9d0731b1382f36c.jpg",
+    image: CertificateProgramLeadership,
     route: "/leadership-in-education",
   },
   {
@@ -93,8 +96,7 @@ export const courses = [
     reviews: "4,175",
     price: 12000,
     oldPrice: "₹17,000",
-    image:
-      "https://birlalearnleap.com/media/cache/lg/af5102bc12187f2ef1056a01e79f85912785040c.jpg",
+    image: Burlingtonenglish,
     route: "/burlington-english",
   },
 ];
@@ -507,9 +509,10 @@ export const BurlingtonProgramModule = [
 export const testimonials = [
   {
     id: 1,
-    name: " Soumali Ghoshal ",
+    name: "Soumali Ghoshal ",
     image: Soumali,
-    status: "Verified Graduate",
+    status: "Assistant Teacher",
+    stateAndCity: "Kolkata, West Bengal",
     title: " K12 Teacher Training",
     description:
       "It was a wonderful experience.  I have learnt many new things from this K-12 Teacher Training program. The practical activities and case studies helped me to solidify learning and I make it applicable to the classroom immediately. This course helped me to understand students in a better way and the classroom management tricks helped me to create a positive learning environment among the students. The use of technology and multimedia in the classroom had increased students' understanding of the subject matter. Finally I must admit that I have gained a lot of confidence in my teaching skills. Thanks again to the whole team.",
@@ -518,7 +521,8 @@ export const testimonials = [
     id: 2,
     name: "Varun Tuli",
     image: VarunTulli,
-    status: "Verified Teacher",
+    status: "Home Tutor",
+    stateAndCity: "Mumbai, Maharashtra",
     title: " K12 Teacher Training ",
     description:
       "Success story - A big thanks to the team of Birla LearnLeap for a phenomenal teaching course and that too so much helpful. I thank the teachers and mentors for constant help and assistance. The wisdom, skills that I got from here and the certificate will be a great help to me in my teaching career. I'm very much glad that I was a part of Birla LearnLeap k- 12 teaching course. Thank you Team Birla LearnLeap and K-12.",
@@ -527,27 +531,28 @@ export const testimonials = [
     id: 3,
     name: "S. Santosh",
     image: Santosh,
-    status: "Verified Graduate",
+    status: "Teacher",
+    stateAndCity: "Chennai, Tamil Nadu",
     title: "K12 Teacher Training ",
     description:
       "Success story - I enrolled in the Birla LearnLeap K12 Teacher Training Program with the goal of learning various strategies to enhance my teaching skills. Through the program, I had the opportunity to learn how to design lesson plans, including those tailored for students with differentiated skills. I also gained valuable insights into incorporating AI in learning, as well as strategies for engaging distracted minds and making the classroom more interactive and effective.",
   },
   {
     id: 4,
-    name: "Ms. Janette Fernando",
-    image:
-      "https://birlalearnleap.com/media/cache/md/440d0edea73ba2af80190099c44fcfa58fe3c7c0.jpg",
-    status: "Verified Graduate",
+    name: "Janette Fernando",
+    image: JanneteFernando,
+    status: "Teacher",
+    stateAndCity: "Mumbai, Maharashtra",
     title: "Leadership Course",
     description:
       "The Educational Leadership Course at Birla has profoundly transformed my approach to leadership. Through interactive lessons and insightful discussions on effective practices and various leadership styles, I’ve gained valuable tools to foster a collaborative and inclusive environment. The course has enhanced my understanding of how to inspire change and empower others, making me feel more prepared to lead with confidence in my school community. I now have a clearer vision for my leadership role and am excited to apply these skills to make a meaningful impact. I highly recommend this course to anyone seeking to grow as a leader in education!",
   },
   {
     id: 5,
-    name: "Patrick Abrams",
-    image:
-      "https://birlalearnleap.com/media/cache/md/4b07778e38d98f19b192725e3c5091a7bb514c6b.png",
-    status: "Verified Graduate",
+    name: "Janice Rayan",
+    image: JaniceRayan,
+    status: "Senior Manager - Preschool",
+    stateAndCity: "Mumbai, Maharashtra",
     title: "Leadership Course",
     description:
       "Enrolling in the Educational Leadership Certificate program from LearnLeap was one of the best decisions I’ve made for my career. The valuable acumens I learned have helped me become a more effective leader and advance professionally. The curriculum was clear and easy to follow, and I felt supported every step of the way. I now feel better prepared to tackle challenges and inspire others. Ms. Priya, our facilitator, added so much value to the experience with her insightful guidance and constant encouragement. The placement assistance was an incredible bonus, playing a key role in helping me secure the job I was aiming for. I highly recommend this program to anyone eager to grow as a leader and make a meaningful impact in education!",

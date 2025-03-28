@@ -6,6 +6,7 @@ import Header from "../header";
 import { API_URL } from "../../constants/constants";
 import { clearCart } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
+import ModernFooter from "../Footer/Footer";
 
 export default function Success() {
   const dispatch = useDispatch();
@@ -85,6 +86,7 @@ export default function Success() {
           </button>
         </div>
       </div>
+      <ModernFooter />
     </>
   );
 }

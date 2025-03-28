@@ -10,6 +10,7 @@ import { setUser } from "../../store/authSlice";
 import { motion } from "framer-motion";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import LoginPage from "../../assets/image/login.png";
+import ModernFooter from "../Footer/Footer";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -202,6 +203,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+      <ModernFooter />
     </>
   );
 };

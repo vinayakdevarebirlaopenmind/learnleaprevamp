@@ -20,6 +20,7 @@ import Header from "../header";
 import { useSelector } from "react-redux";
 import TwitterLogo from "../../assets/image/twitter-new-logo.png";
 import { useUpdateUserProfileMutation } from "../../store/enquiryApiSlice";
+import ModernFooter from "../Footer/Footer";
 
 const UserProfile = () => {
   const { user } = useSelector((state) => state.auth);
@@ -373,6 +374,7 @@ const UserProfile = () => {
           )}
         </Box>
       </Container>
+      <ModernFooter />
     </>
   );
 };

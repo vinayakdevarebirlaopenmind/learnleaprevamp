@@ -80,7 +80,7 @@ export const CourseDetails = () => {
           </div>
 
           <div className="course-instructors">
-            <span>Created by: Priya Gopal, Sandeep Pinto</span>
+            {/* <span>Created by: Priya Gopal, Sandeep Pinto</span> */}
           </div>
 
           <div className="course-info">

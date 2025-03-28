@@ -17,6 +17,7 @@ import { trendingSearches } from "../../constants/constants";
 import CourseSection from "../courses/CourseSection";
 import Enquiryimage from "../../assets/image/enquiry_illustrations.jpg";
 import { useSelector } from "react-redux";
+import ModernFooter from "../Footer/Footer";
 const API_KEY = "Y3FuTmtxeVgxMWl2WjF0eEFHbWNNVkRVRWE1dENMRVJkRDZjZGNKUQ==";
 const API_URL = "https://api.countrystatecity.in/v1/countries/IN/states";
 
@@ -300,6 +301,7 @@ const EnquireForm = () => {
         </div>
       </div>
       <CourseSection />
+      <ModernFooter />
     </>
   );
 };

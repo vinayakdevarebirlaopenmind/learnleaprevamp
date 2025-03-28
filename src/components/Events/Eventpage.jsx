@@ -3,9 +3,10 @@ import "./Eventpage.css"; // Updated CSS file name
 import { BsCalendarPlus, BsShare } from "react-icons/bs";
 import { MdClose } from "react-icons/md";
 import Header from "../header";
-import webinar3dec from '../../assets/image/webinar/online-webinar-13-12-2024.jpg'
-import webinar22nov from '../../assets/image/webinar/online-webinar-22-11-2024.jpg'
-import webinar27sep from '../../assets/image/webinar/online-webinar-27-09-2024.jpg'
+import webinar3dec from "../../assets/image/webinar/online-webinar-13-12-2024.jpg";
+import webinar22nov from "../../assets/image/webinar/online-webinar-22-11-2024.jpg";
+import webinar27sep from "../../assets/image/webinar/online-webinar-27-09-2024.jpg";
+import ModernFooter from "../Footer/Footer";
 
 const events = [
   {
@@ -13,36 +14,39 @@ const events = [
     title: "Empowering Webinar on Children with Special Needs",
     date: "13-12-2024",
     speaker: "Passionate Educator & Advocate for Inclusive Education",
-    description: "Teacher Trainer & Leadership Development Specialist | Global Experience in Education",
+    description:
+      "Teacher Trainer & Leadership Development Specialist | Global Experience in Education",
     image: webinar3dec,
-    price:500,
-    Amount:"500"
+    price: 500,
+    Amount: "500",
   },
   {
     id: 2,
     title: "Librarians - Are You in a Silent Zone?",
     date: "22-11-2024",
     speaker: "Ex-Librarian, Storyteller & Podcaster",
-    description: "Discussion on modern librarian challenges and engagement strategies.",
-    price:0,
-    image: webinar22nov
+    description:
+      "Discussion on modern librarian challenges and engagement strategies.",
+    price: 0,
+    image: webinar22nov,
   },
   {
     id: 3,
-    title: "Customizing Textbooks and Curriculum to Connect Learning to Students' Lives",
+    title:
+      "Customizing Textbooks and Curriculum to Connect Learning to Students' Lives",
     date: "27-09-2024",
-    speaker: "HEAD - EXPERIENTIAL LEARNING CENTRE (Somaiya Vidyavihar University)",
-    description: "A session on making textbooks more engaging and relatable to students.",
-    price:500,
-    image: webinar27sep
-  }
+    speaker:
+      "HEAD - EXPERIENTIAL LEARNING CENTRE (Somaiya Vidyavihar University)",
+    description:
+      "A session on making textbooks more engaging and relatable to students.",
+    price: 500,
+    image: webinar27sep,
+  },
 ];
 
 const Eventpage = () => {
-
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
-
 
   return (
     <>
@@ -51,8 +55,6 @@ const Eventpage = () => {
         <h2 className="common-heading">
           Learnleap <span className="color-effect">Events</span>
         </h2>
-
-      
 
         <div className="learnleap-events-grid">
           {events.map((event) => (
@@ -75,7 +77,6 @@ const Eventpage = () => {
               <p className="learnleap-events-price">
                 {event.price === 0 ? "Free" : event.price}
               </p>
-
             </div>
           ))}
         </div>
@@ -119,6 +120,7 @@ const Eventpage = () => {
           </div>
         )} */}
       </div>
+      <ModernFooter />
     </>
   );
 };

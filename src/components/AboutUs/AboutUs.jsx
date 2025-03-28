@@ -15,6 +15,7 @@ import MissionImage from "../../assets/image/target.png";
 import Learnleaplogo from "../../assets/image/LearnLeap Final Logo.png";
 import { FaPhone, FaEnvelope, FaLinkedin, FaInstagram } from "react-icons/fa";
 import CourseSection from "../courses/CourseSection";
+import ModernFooter from "../Footer/Footer";
 
 const features = [
   {
@@ -124,7 +125,7 @@ const AboutUs = () => {
         </div>
       </section>
       <CourseSection />
-        {/* <div className="how-to-join">
+      {/* <div className="how-to-join">
           <p className="common-title">
             HOW {""}
             <span className="color-effect">TO JOIN?</span>
@@ -172,6 +173,7 @@ const AboutUs = () => {
             </p>
           </div>
       </div> */}
+      <ModernFooter />
     </>
   );
 };

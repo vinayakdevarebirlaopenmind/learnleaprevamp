@@ -174,7 +174,7 @@ export default function CourseSection() {
                 />
                 <div className="course-details">
                   <p className="main-course-title">{course.title}</p>
-                  <p className="instructor">{course.instructor}</p>
+                  {/* <p className="instructor">{course.instructor}</p> */}
                   <p className="rating">
                     ⭐⭐⭐⭐ {course.rating} ({course.reviews} reviews)
                   </p>

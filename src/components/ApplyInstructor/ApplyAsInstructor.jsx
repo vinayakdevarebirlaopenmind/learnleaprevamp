@@ -14,10 +14,11 @@ import {
   styled,
 } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import ApplyAsInstructorImage from "../../assets/image/applyasinstructorillustration.jpg";
+import ApplyAsInstructorImage from "../../assets/image/applyasinstructorillustration.png";
 import { useSelector } from "react-redux";
 import CourseSection from "../courses/CourseSection";
 import { useSubmitInstructorDetailsMutation } from "../slice/applyAsInstructorSlice";
+import ModernFooter from "../Footer/Footer";
 const API_KEY = "Y3FuTmtxeVgxMWl2WjF0eEFHbWNNVkRVRWE1dENMRVJkRDZjZGNKUQ==";
 const API_URL = "https://api.countrystatecity.in/v1/countries/IN/states";
 
@@ -58,7 +59,8 @@ const ApplyASInstructor = () => {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
 
-  const [applyAsInstructor, { isLoading }] = useSubmitInstructorDetailsMutation();
+  const [applyAsInstructor, { isLoading }] =
+    useSubmitInstructorDetailsMutation();
 
   // Fetch States on Component Mount
   useEffect(() => {
@@ -124,40 +126,65 @@ const ApplyASInstructor = () => {
     }
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   // Create FormData to send file + form fields
+  //   const submissionData = new FormData();
+  //   Object.keys(formData).forEach((key) => {
+  //     submissionData.append(key, formData[key]);
+  //   });
+
+  //   try {
+  //     await applyAsInstructor(submissionData).unwrap(); // Call the mutation
+  //     setSuccessMessage("Form submitted successfully!");
+  //     setShowSuccess(true);
+  //     setFormData({
+  //       name: "",
+  //       email: "",
+  //       age: "",
+  //       phone: "",
+  //       state: "",
+  //       city: "",
+  //       program: "",
+  //       query: "",
+  //       file: null,
+  //     });
+  //     setFileName("Upload PDF"); // Reset file name
+  //     setTimeout(() => setShowSuccess(false), 3000);
+  //   } catch (error) {
+  //     setErrorMessage("Failed to submit form. Please try again.");
+  //     setShowError(true);
+  //     console.error("Error:", error);
+  //     setTimeout(() => setShowError(false), 3000);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    // Create FormData to send file + form fields
-    const submissionData = new FormData();
-    Object.keys(formData).forEach((key) => {
-      submissionData.append(key, formData[key]);
+
+    // Show success message without actually uploading
+    setSuccessMessage("File submitted successfully!");
+    setShowSuccess(true);
+
+    // Reset form fields
+    setFormData({
+      name: "",
+      email: "",
+      age: "",
+      phone: "",
+      state: "",
+      city: "",
+      program: "",
+      query: "",
+      file: null,
     });
-  
-    try {
-      await applyAsInstructor(submissionData).unwrap(); // Call the mutation
-      setSuccessMessage("Form submitted successfully!");
-      setShowSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        age: "",
-        phone: "",
-        state: "",
-        city: "",
-        program: "",
-        query: "",
-        file: null,
-      });
-      setFileName("Upload PDF"); // Reset file name
-      setTimeout(() => setShowSuccess(false), 3000);
-    } catch (error) {
-      setErrorMessage("Failed to submit form. Please try again.");
-      setShowError(true);
-      console.error("Error:", error);
-      setTimeout(() => setShowError(false), 3000);
-    }
+
+    setFileName("Upload PDF"); // Reset file name
+
+    // Hide success message after 3 seconds
+    setTimeout(() => setShowSuccess(false), 3000);
   };
-  
 
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
@@ -333,6 +360,7 @@ const ApplyASInstructor = () => {
         </div>
       </div>
       <CourseSection />
+      <ModernFooter />
     </>
   );
 };

@@ -35,6 +35,8 @@ import {
 } from "@mui/icons-material";
 import { useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { LiaBlackTie } from "react-icons/lia";
+
 import CourseTestimonial from "../Testimonial/CourseTestimonial";
 import {
   diplomaeccedmodules,
@@ -50,6 +52,7 @@ import SuccessAlert from "../Alerts/SuccesAlert";
 import { addToCart } from "../../store/cartSlice";
 import { addToWishlist, removeFromWishlist } from "../slice/wishlistSlice";
 import { useLocation, useNavigate } from "react-router-dom";
+import ModernFooter from "../Footer/Footer";
 export const LeadshipCourse = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const dispatch = useDispatch();
@@ -62,7 +65,7 @@ export const LeadshipCourse = () => {
   const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
   const location = useLocation();
   const course = location.state?.course;
-  console.log(course);
+  // console.log(course);
   const navigate = useNavigate();
 
   const handleToggle = () => {
@@ -135,7 +138,7 @@ export const LeadshipCourse = () => {
     setShowSuccess(true);
   };
   return (
-    <div>
+    <>
       <Header />
       {/* Success Alert */}
       <SuccessAlert
@@ -213,7 +216,7 @@ export const LeadshipCourse = () => {
           </div>
 
           <div className="course-instructors">
-            <span>Created by: Satwant Palekar, Priya Gopal</span>
+            {/* <span>Created by: Satwant Palekar, Priya Gopal</span> */}
           </div>
 
           <div className="course-info">
@@ -282,6 +285,10 @@ export const LeadshipCourse = () => {
                 <WorkspacePremium style={{ color: "blue" }} /> Certificate of
                 completion
               </li>
+              <li>
+                <LiaBlackTie style={{ color: "blue", fontSize: "24px" }} /> 100%
+                Placement Assistance
+              </li>{" "}
             </ul>
           </div>
         </div>
@@ -302,7 +309,12 @@ export const LeadshipCourse = () => {
                 aria-controls={`panel${index}-content`}
                 id={`panel${index}-header`}
               >
-                <Typography component="span">{module.title}</Typography>
+                <Typography
+                  component="span"
+                  sx={{ fontWeight: "bold", color: "#333" }}
+                >
+                  {module.title}
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>{module.details}</AccordionDetails>
             </Accordion>
@@ -335,18 +347,18 @@ export const LeadshipCourse = () => {
               <iframe
                 width="100%"
                 height="315"
-                src="https://www.youtube.com/embed/vTNdFlXBon0"
+                src="https://www.youtube.com/embed/aSCboI7o6Wk"
                 title="YouTube video player"
-                frameBorder="0"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                allowfullscreen
               ></iframe>
             </div>
           </div>
           <div className="course-price">
-            <h1 className="current-price-details">₹20,000</h1>
-            <span className="original-price">₹35,499</span>
-            <span className="discount"> 43.66% off</span>
+            <h1 className="current-price-details">₹10,000</h1>
+            <span className="original-price">₹25,499</span>
+            <span className="discount"> 60.78% off</span>
           </div>
           <div className="limited-offer">
             <AlarmIcon />
@@ -376,6 +388,7 @@ export const LeadshipCourse = () => {
           </div>
         </div>
       </div>
-    </div>
+      <ModernFooter />
+    </>
   );
 };

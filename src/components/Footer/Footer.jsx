@@ -1,25 +1,29 @@
 import "./Footer.css";
 import Learnleaplogo from "../../assets/image/LearnLeap Final Logo.png";
 import React from "react";
-import { Container, Grid, Typography, Link } from "@mui/material";
+import { Container, Grid, Typography, Link, Grid2 } from "@mui/material";
 import { FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { trendingSearchesWithCourses } from "../../constants/constants";
 
 const ModernFooter = () => {
+  const navigate = useNavigate();
+
   const navigationLinks = {
     "Quick Links": [
-      "Home",
-      "About LearnLeap",
-      "Purchase History",
-      "Apply as Instructor",
+      { name: "Home", path: "/" },
+      { name: "About LearnLeap", path: "/aboutus" },
+      { name: "Purchase History", path: "/purchase-history" },
+      { name: "Apply as Instructor", path: "/applyasintructor" },
+      { name: "My Cart", path: "/cart" },
     ],
-    Courses: [
-      "Certificate Program for ECCEd",
-      "Diploma Program for ECCEd",
-      "Certificate Program for K12 Teachers",
-      "Certificate Program for Leadership in Education",
-      "Burlington English Program",
+
+    Support: [
+      { name: "Enquire Now", path: "/enquireform" },
+      { name: "FAQs", path: "/faqs" },
+      { name: "Privacy Policy", path: "/privacypolicy" },
+      { name: "Refund Policy", path: "/refundpolicy" },
     ],
-    Support: ["Enquire Now", "FAQs", "Privacy Policy", "Refund Policy"],
   };
 
   return (
@@ -68,17 +72,44 @@ const ModernFooter = () => {
                 <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
                   {category}
                 </Typography>
-                {links.map((link) => (
-                  <Typography variant="body2" key={link}>
-                    <Link href="#" className="footer-link">
-                      {link}
+                {links.map(({ name, path }) => (
+                  <Typography variant="body2" key={name}>
+                    <Link
+                      component="button"
+                      onClick={() => navigate(path)}
+                      className="footer-link"
+                      sx={{ textAlign: "start" }}
+                    >
+                      {name}
                     </Link>
                   </Typography>
                 ))}
               </div>
             </Grid>
           ))}
-
+          {trendingSearchesWithCourses.length > 0 && (
+            <Grid item xs={12} sm={6} md={3}>
+              <div className="link-column">
+                <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                  Courses We Offer
+                </Typography>
+                {trendingSearchesWithCourses.map((item) => (
+                  <Typography variant="body2" key={item.id}>
+                    <Link
+                      component="button"
+                      onClick={() =>
+                        navigate(item.path, { state: { course: item.course } })
+                      }
+                      className="footer-link"
+                      sx={{ textAlign: "start" }}
+                    >
+                      {item.name}
+                    </Link>
+                  </Typography>
+                ))}
+              </div>
+            </Grid>
+          )}
           {/* 3️⃣ Footer Bottom */}
           <Grid item xs={12}>
             <Typography variant="body2" className="footer-text" align="center">

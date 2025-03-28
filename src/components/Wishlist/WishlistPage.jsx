@@ -10,6 +10,7 @@ import { FormatIndianNumber } from "../../constants/constants";
 import { Tooltip } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import WishlistImage from "../../assets/image/wishlist-image.jpg";
+import ModernFooter from "../Footer/Footer";
 const WishlistPage = () => {
   const dispatch = useDispatch();
   const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
@@ -95,7 +96,7 @@ const WishlistPage = () => {
           </div>
         )}
       </div>
-      {/* <CourseSection /> */}
+      <ModernFooter />
     </>
   );
 };

@@ -81,10 +81,8 @@ function App() {
             }
           />
           <Route path="/profile" element={<UserProfile />} />
-
           <Route path="/ecced-diploma" element={<DiplomaProgram />} />
           <Route path="/leadership-in-education" element={<LeadshipCourse />} />
-
           <Route
             path="/ecced-certificate"
             element={<CertificateProgramEcced />}
