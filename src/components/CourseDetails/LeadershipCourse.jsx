@@ -53,6 +53,18 @@ import { addToCart } from "../../store/cartSlice";
 import { addToWishlist, removeFromWishlist } from "../slice/wishlistSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 import ModernFooter from "../Footer/Footer";
+import CertificateProgramLeadership from "../../assets/image/certificate-program-leadershipt.webp";
+const DefaultCourse = {
+  id: 4,
+  image: CertificateProgramLeadership,
+  instructor: "Satwant Palekar, Priya Gopal",
+  oldPrice: "₹35,499",
+  price: 12000,
+  rating: 4.3,
+  reviews: "4,175",
+  route: "/leadership-in-education",
+  title: "Certificate Program for Leadership in Education",
+};
 export const LeadshipCourse = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const dispatch = useDispatch();
@@ -64,8 +76,8 @@ export const LeadshipCourse = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
   const location = useLocation();
-  const course = location.state?.course;
-  // console.log(course);
+  const course = location.state?.course || DefaultCourse;
+  console.log(course);
   const navigate = useNavigate();
 
   const handleToggle = () => {
@@ -356,7 +368,7 @@ export const LeadshipCourse = () => {
             </div>
           </div>
           <div className="course-price">
-            <h1 className="current-price-details">₹10,000</h1>
+            <h1 className="current-price-details">₹12,000</h1>
             <span className="original-price">₹25,499</span>
             <span className="discount"> 60.78% off</span>
           </div>

@@ -53,6 +53,18 @@ import { addToWishlist, removeFromWishlist } from "../slice/wishlistSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LiaBlackTie } from "react-icons/lia";
 import ModernFooter from "../Footer/Footer";
+import CertificateProgramEccedImage from "../../assets/image/certificate-ecced-program.webp";
+const DefaultCourse = {
+  id: 1,
+  image: CertificateProgramEccedImage,
+  instructor: "Satwant Palekar, Priya Gopal",
+  oldPrice: "₹25,499",
+  price: 12000,
+  rating: 4.4,
+  reviews: "9,070",
+  route: "/ecced-certificate",
+  title: "Certificate Program for ECCEd",
+};
 export const CertificateProgramEcced = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const dispatch = useDispatch();
@@ -64,8 +76,7 @@ export const CertificateProgramEcced = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
   const location = useLocation();
-  const course = location.state?.course;
-  console.log(course);
+  const course = location.state?.course || DefaultCourse;
   const navigate = useNavigate();
 
   const handleToggle = () => {
@@ -357,7 +368,7 @@ export const CertificateProgramEcced = () => {
             </div>
           </div>
           <div className="course-price">
-            <h1 className="current-price-details">₹10,000</h1>
+            <h1 className="current-price-details">₹12,000</h1>
             <span className="original-price">₹25,499</span>
             <span className="discount"> 60.78% off</span>
           </div>

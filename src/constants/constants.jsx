@@ -50,7 +50,7 @@ export const courses = [
     instructor: "Satwant Palekar, Priya Gopal",
     rating: 4.4,
     reviews: "9,070",
-    price: 10000,
+    price: 12000,
     oldPrice: "₹25,499",
     image: CertificateProgramEccedImage,
     route: "/ecced-certificate",
@@ -72,7 +72,7 @@ export const courses = [
     instructor: "Satwant Palekar, Priya Gopal",
     rating: 4.4,
     reviews: "128",
-    price: 10000,
+    price: 12000,
     oldPrice: "₹13,499",
     image: K12image,
     route: "/k12-certificate",
@@ -83,7 +83,7 @@ export const courses = [
     instructor: "Satwant Palekar, Priya Gopal",
     rating: 4.3,
     reviews: "4,175",
-    price: 10000,
+    price: 12000,
     oldPrice: "₹35,499",
     image: CertificateProgramLeadership,
     route: "/leadership-in-education",
@@ -202,7 +202,7 @@ export const diplomaeccedmodules = [
       "Understand and apply the core principles of early education aligned with national guidelines.",
   },
   {
-    title: "Module 2: Child Development &amp; Psychology",
+    title: "Module 2: Child Development and Psychology",
     details: "Understanding cognitive, emotional and social development.",
   },
   {
@@ -236,21 +236,21 @@ export const diplomaeccedmodules = [
       "Building strong early Math and language skills and Leveraging technology for effective learning.",
   },
   {
-    title: "Module 9: Separation Anxiety &amp; Sibling Rivalry",
+    title: "Module 9: Separation Anxiety and Sibling Rivalry",
     details: "Managing emotional transitions in children.",
   },
   {
-    title: "Module 10: 21st-Century Skills &amp; Future-Ready Learning",
+    title: "Module 10: 21st-Century Skills and Future-Ready Learning",
     details:
       "Coding for Kids – Introducing computational thinking early, Leveraging technology for interactive learning. Preparing children with skills for the future.",
   },
   {
-    title: "Module 11: Classroom &amp; Child Safety",
+    title: "Module 11: Classroom and Child Safety",
     details:
       "Classroom Management strategies for an engaging and inclusive environment.",
   },
   {
-    title: "Module 12: Rules &amp;amp; Discipline in and outside the classroom",
+    title: "Module 12: Rules and Discipline in and outside the classroom",
     details:
       "Handling Special Needs Children with inclusive teaching practices Child Safety measures for a secure learning space",
   },

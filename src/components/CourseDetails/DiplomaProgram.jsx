@@ -46,6 +46,19 @@ import SuccessAlert from "../Alerts/SuccesAlert";
 import { addToCart } from "../../store/cartSlice";
 import { LiaBlackTie } from "react-icons/lia";
 import ModernFooter from "../Footer/Footer";
+import Diplomaprogramecced from "../../assets/image/diploma-program-ecced.webp";
+const DefaultCourse = {
+  id: 2,
+  image: Diplomaprogramecced,
+  instructor: "Satwant Palekar, Priya Gopal",
+  oldPrice: "₹55,499",
+  price: 35000,
+  rating: 4.5,
+  reviews: "153",
+  route: "/ecced-diploma",
+  title: "Diploma Program for ECCEd",
+};
+
 export const DiplomaProgram = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const dispatch = useDispatch();
@@ -61,7 +74,8 @@ export const DiplomaProgram = () => {
     setIsExpanded((prev) => !prev);
   };
   const location = useLocation();
-  const course = location.state?.course;
+  const course = location.state?.course || DefaultCourse;
+
   const handleAddToCart = (course) => {
     const existingItem = cartItems.find((item) => item.id === course.id);
 

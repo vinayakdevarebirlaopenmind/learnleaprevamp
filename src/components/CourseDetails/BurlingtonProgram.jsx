@@ -36,14 +36,7 @@ import {
 import { useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CourseTestimonial from "../Testimonial/CourseTestimonial";
-import {
-  BurlingtonProgramModule,
-  certificateProgramEcced,
-  diplomaeccedmodules,
-  k12ProgramModule,
-  leaderShipmodules,
-  modules,
-} from "../../constants/constants";
+import { BurlingtonProgramModule } from "../../constants/constants";
 import CourseCertificate from "./CourseCertificate";
 import TeamMembers from "./TeamMembers";
 import CourseList from "./MiniCourseCard";
@@ -55,6 +48,18 @@ import { addToWishlist, removeFromWishlist } from "../slice/wishlistSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LiaBlackTie } from "react-icons/lia";
 import ModernFooter from "../Footer/Footer";
+import Burlingtonenglish from "../../assets/image/burlington-english.webp";
+const DefaultCourse = {
+  id: 5,
+  image: Burlingtonenglish,
+  instructor: "Satwant Palekar, Priya Gopal",
+  oldPrice: "₹17,000",
+  price: 12000,
+  rating: 4.3,
+  reviews: "4,175",
+  route: "/burlington-english",
+  title: "Burlington English Program",
+};
 export const BurlingtonProgram = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const dispatch = useDispatch();
@@ -66,7 +71,7 @@ export const BurlingtonProgram = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
   const location = useLocation();
-  const course = location.state?.course;
+  const course = location.state?.course || DefaultCourse;
   console.log(course);
   const navigate = useNavigate();
 
